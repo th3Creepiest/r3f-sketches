@@ -6,6 +6,7 @@ import App from "./App.tsx"
 import Example1 from "./pages/Example1"
 import Example2 from "./pages/Example2"
 import Example3 from "./pages/Example3"
+import Primitives from "./pages/Primitives"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="example-1" element={<Example1 />} />
         <Route path="example-2" element={<Example2 />} />
         <Route path="example-3" element={<Example3 />} />
+        <Route path="primitives" element={<Primitives />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
