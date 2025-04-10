@@ -24,7 +24,7 @@ function Box(props: ThreeElements["mesh"]) {
 
 export default function Example() {
   return (
-    <div className="h-screen w-screen bg-amber-400">
+    <div className="h-screen bg-amber-400">
       <Canvas>
         <ambientLight intensity={Math.PI / 2} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />

@@ -14,7 +14,7 @@ function ThreeScene() {
 
 export default function Example() {
   return (
-    <div className="h-screen w-screen">
+    <div className="h-screen">
       <ThreeScene />
     </div>
   )
