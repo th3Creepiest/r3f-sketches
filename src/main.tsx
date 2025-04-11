@@ -15,7 +15,7 @@ import LevaGui from "./pages/LevaGui.tsx"
 import Lights from "./pages/Lights.tsx"
 import Shadows from "./pages/Shadows.tsx"
 import Cameras from "./pages/Cameras.tsx"
-import SpotLightWithHelper from "./pages/SpotLightWithHelper.tsx"
+import SpotLight from "./pages/lights/SpotLight.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -34,7 +34,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="lights" element={<Lights />} />
         <Route path="shadows" element={<Shadows />} />
         <Route path="cameras" element={<Cameras />} />
-        <Route path="spot-light-with-helper" element={<SpotLightWithHelper />} />
+        <Route path="spot-light" element={<SpotLight />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
