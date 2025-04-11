@@ -13,6 +13,7 @@ import OrbitControls from "./pages/OrbitControls.tsx"
 import HelperGizmos from "./pages/HelperGizmos.tsx"
 import LevaGui from "./pages/LevaGui.tsx"
 import Lights from "./pages/Lights.tsx"
+import Shadows from "./pages/Shadows.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -29,6 +30,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="helper-gizmos" element={<HelperGizmos />} />
         <Route path="leva-gui" element={<LevaGui />} />
         <Route path="lights" element={<Lights />} />
+        <Route path="shadows" element={<Shadows />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
