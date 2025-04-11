@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber"
 import { OrbitControls, useHelper } from "@react-three/drei"
 import { useControls } from "leva"
 
-function SpotLightWithHelper({ wire_color }: { wire_color?: string } = {}) {
+function SpotLightWithHelper({ wire_color: helper_color }: { wire_color?: string } = {}) {
   const light = useRef<SpotLight>(null!)
   const target = useRef<Object3D>(null!)
 
@@ -19,7 +19,7 @@ function SpotLightWithHelper({ wire_color }: { wire_color?: string } = {}) {
     castShadow: { value: true },
   })
 
-  useHelper(light, SpotLightHelper, wire_color || "orange")
+  useHelper(light, SpotLightHelper, helper_color || "orange")
 
   useEffect(() => {
     if (target.current && light.current) {
