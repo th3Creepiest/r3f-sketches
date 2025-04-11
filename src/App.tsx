@@ -12,6 +12,7 @@ export default function App() {
       <Link to="orbit-controls">Orbit Controls</Link>
       <Link to="helper-gizmos">Helper Gizmos</Link>
       <Link to="leva-gui">Leva GUI</Link>
+      <Link to="lights">Lights</Link>
     </div>
   )
 }
