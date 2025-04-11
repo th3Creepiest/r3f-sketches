@@ -15,6 +15,7 @@ export default function App() {
       <Link to="lights">Lights</Link>
       <Link to="shadows">Shadows</Link>
       <Link to="cameras">Cameras</Link>
+      <Link to="ambient-light">Ambient Light</Link>
       <Link to="spot-light">Spot Light</Link>
     </div>
   )
