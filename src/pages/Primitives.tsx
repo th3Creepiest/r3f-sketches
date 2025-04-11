@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react"
-import { Mesh, Shape, Vector2, Vector3, Curve, BoxGeometry, EdgesGeometry, WireframeGeometry } from "three"
-import { Canvas, useFrame } from "@react-three/fiber"
+import { Vector2, Vector3, Mesh, Shape, Curve, BoxGeometry, EdgesGeometry, WireframeGeometry } from "three"
 import { ParametricGeometry, TextGeometry, FontLoader, Font } from "three/examples/jsm/Addons.js"
+import { Canvas, useFrame } from "@react-three/fiber"
 
 type ShapeProps = {
   position?: [number, number, number]
@@ -14,9 +14,9 @@ type ShapeProps = {
 function Box({
   position = [0, 0, 0],
   color = "white",
-  width = 0.5,
-  height = 0.5,
-  depth = 0.5,
+  width = 0.8,
+  height = 0.8,
+  depth = 0.8,
 }: ShapeProps & { width?: number; height?: number; depth?: number }) {
   const ref = useRef<Mesh>(null!)
   useFrame(() => ((ref.current.rotation.x += 0.01), (ref.current.rotation.y += 0.01)))
@@ -103,8 +103,8 @@ function Extrude({ position = [0, 0, 0], color = "white" }: ShapeProps) {
   useFrame(() => ((ref.current.rotation.x += 0.01), (ref.current.rotation.y += 0.01)))
   const shape = new Shape()
   shape.moveTo(0, 0)
-  shape.bezierCurveTo(-0.25, -0.5, -0.75, 0, 0, 0.75) // Left half of heart
-  shape.bezierCurveTo(0.75, 0, 0.5, -0.5, 0, 0) // Right half of heart
+  shape.bezierCurveTo(-0.125, -0.25, -0.375, 0, 0, 0.375) // Left half of heart
+  shape.bezierCurveTo(0.375, 0, 0.25, -0.25, 0, 0) // Right half of heart
   return (
     <mesh ref={ref} position={position}>
       <extrudeGeometry
@@ -138,7 +138,7 @@ function Lathe({ position = [0, 0, 0], color = "white" }: ShapeProps) {
   useFrame(() => ((ref.current.rotation.x += 0.01), (ref.current.rotation.y += 0.01)))
   const points = []
   for (let i = 0; i < 10; i++) {
-    points.push(new Vector2(Math.sin(i * 0.2) * 0.5, (i - 5) * 0.1))
+    points.push(new Vector2(Math.sin(i * 0.2) * 0.3, (i - 5) * 0.05))
   }
   return (
     <mesh ref={ref} position={position}>
@@ -151,12 +151,12 @@ function Lathe({ position = [0, 0, 0], color = "white" }: ShapeProps) {
 /**
  * a octahedron
  */
-function Octahedron({ position = [0, 0, 0], color = "white" }: ShapeProps) {
+function Octahedron({ position = [0, 0, 0], color = "white", radius = 0.5 }: ShapeProps & { radius?: number }) {
   const ref = useRef<Mesh>(null!)
   useFrame(() => ((ref.current.rotation.x += 0.01), (ref.current.rotation.y += 0.01)))
   return (
     <mesh ref={ref} position={position}>
-      <octahedronGeometry args={[0.5]} />
+      <octahedronGeometry args={[radius]} />
       <meshStandardMaterial color={color} />
     </mesh>
   )
@@ -257,8 +257,8 @@ function ShapeGeometry({ position = [0, 0, 0], color = "white" }: ShapeProps) {
   useFrame(() => ((ref.current.rotation.x += 0.01), (ref.current.rotation.y += 0.01)))
   const shape = new Shape()
   shape.moveTo(0, 0)
-  shape.bezierCurveTo(-0.25, -0.5, -0.75, 0, 0, 0.75) // Left half of heart
-  shape.bezierCurveTo(0.75, 0, 0.5, -0.5, 0, 0) // Right half of heart
+  shape.bezierCurveTo(-0.125, -0.25, -0.375, 0, 0, 0.375) // Left half of heart
+  shape.bezierCurveTo(0.375, 0, 0.25, -0.25, 0, 0) // Right half of heart
   return (
     <mesh ref={ref} position={position}>
       <shapeGeometry args={[shape]} />
@@ -389,12 +389,14 @@ function TorusKnot({
   color = "white",
   radius = 0.5,
   tubeRadius = 0.2,
-}: ShapeProps & { radius?: number; tubeRadius?: number }) {
+  tubularSegments = 12,
+  radialSegments = 12,
+}: ShapeProps & { radius?: number; tubeRadius?: number; tubularSegments?: number; radialSegments?: number }) {
   const ref = useRef<Mesh>(null!)
   useFrame(() => ((ref.current.rotation.x += 0.01), (ref.current.rotation.y += 0.01)))
   return (
     <mesh ref={ref} position={position}>
-      <torusKnotGeometry args={[radius, tubeRadius, 16, 48]} />
+      <torusKnotGeometry args={[radius, tubeRadius, tubularSegments, radialSegments]} />
       <meshStandardMaterial color={color} />
     </mesh>
   )
@@ -419,7 +421,7 @@ function Tube({ position = [0, 0, 0], color = "white" }: ShapeProps) {
       return new Vector3(tx, ty, tz).multiplyScalar(this.scale)
     }
   }
-  const path = new CustomSinCurve(0.5)
+  const path = new CustomSinCurve(0.2)
   return (
     <mesh ref={ref} position={position}>
       <tubeGeometry args={[path, 64, 0.05, 8, false]} />
@@ -438,13 +440,12 @@ function Edges({ position = [0, 0, 0], color = "white" }: ShapeProps) {
   const widthSegments = 2
   const heightSegments = 2
   const depthSegments = 2
-  const boxGeometry = new BoxGeometry(size, size, size, widthSegments, heightSegments, depthSegments)
-  const geometry = new EdgesGeometry(boxGeometry)
+  const geometry = new EdgesGeometry(new BoxGeometry(size, size, size, widthSegments, heightSegments, depthSegments))
   return (
-    <mesh ref={ref} position={position}>
+    <lineSegments ref={ref} position={position}>
       <primitive object={geometry} />
       <lineBasicMaterial color={color} />
-    </mesh>
+    </lineSegments>
   )
 }
 
@@ -458,13 +459,14 @@ function Wireframe({ position = [0, 0, 0], color = "white" }: ShapeProps) {
   const widthSegments = 2
   const heightSegments = 2
   const depthSegments = 2
-  const boxGeometry = new BoxGeometry(size, size, size, widthSegments, heightSegments, depthSegments)
-  const geometry = new WireframeGeometry(boxGeometry)
+  const geometry = new WireframeGeometry(
+    new BoxGeometry(size, size, size, widthSegments, heightSegments, depthSegments)
+  )
   return (
-    <mesh ref={ref} position={position}>
+    <lineSegments ref={ref} position={position}>
       <primitive object={geometry} />
       <lineBasicMaterial color={color} />
-    </mesh>
+    </lineSegments>
   )
 }
 
@@ -472,29 +474,30 @@ export default function Primitives() {
   return (
     <div className="h-screen bg-black">
       <Canvas>
-        <ambientLight intensity={0.5} />
-        <Box position={[-2, 2, 0]} color={"hotpink"} />
-        <Circle position={[-1, 2, 0]} color={"hotpink"} />
-        <Cone position={[0, 2, 0]} color={"hotpink"} />
-        <Cylinder position={[1, 2, 0]} color={"hotpink"} />
-        <Dodecahedron position={[-1, 1, 0]} color={"hotpink"} />
-        <Icosahedron position={[0, 1, 0]} color={"hotpink"} />
-        <Octahedron position={[1, 1, 0]} color={"hotpink"} />
-        <Plane position={[-3, -1, 0]} color={"hotpink"} />
-        <Ring position={[1, 0, 0]} color={"hotpink"} />
-        <Extrude position={[-1, 0, 0]} color={"red"} />
-        <Lathe position={[0, 0, 0]} color={"orange"} />
-        <Parametric position={[-2, 0, 0]} color={"lime"} />
-        <Polyhedron position={[-1, 0, 0]} color={"blue"} />
-        <ShapeGeometry position={[0, -0, 0]} color={"purple"} />
-        <Sphere position={[2, -0, 0]} color={"hotpink"} />
-        <Tetrahedron position={[1, -1, 0]} color={"hotpink"} />
+        <ambientLight intensity={0.1} />
+        <pointLight position={[0, 0, 2]} intensity={3} />
+        <Plane position={[-2, 3, 0]} width={0.8} height={0.8} color={"orange"} />
+        <Circle position={[-1, 3, 0]} radius={0.4} color={"orange"} />
+        <Ring position={[0, 3, 0]} innerRadius={0.2} outerRadius={0.4} color={"orange"} />
+        <Tetrahedron position={[-2, 2, 0]} radius={0.4} color={"hotpink"} />
+        <Octahedron position={[-1, 2, 0]} radius={0.4} color={"hotpink"} />
+        <Dodecahedron position={[0, 2, 0]} radius={0.4} color={"hotpink"} />
+        <Icosahedron position={[1, 2, 0]} radius={0.4} color={"hotpink"} />
+        <Box position={[-2, 1, 0]} width={0.5} height={0.5} depth={0.5} color={"royalblue"} />
+        <Sphere position={[-1, 1, 0]} radius={0.4} color={"royalblue"} />
+        <Cone position={[0, 1, 0]} radius={0.4} height={0.8} color={"royalblue"} />
+        <Cylinder position={[1, 1, 0]} radiusTop={0.4} radiusBot={0.4} height={0.75} color={"royalblue"} />
+        <Torus position={[-2, 0, 0]} radius={0.3} tubeRadius={0.15} color={"hotpink"} />
+        <TorusKnot position={[-1, 0, 0]} radius={0.3} tubeRadius={0.08} color={"hotpink"} />
+        <Tube position={[0, 0, 0]} color={"cyan"} />
+        <Parametric position={[1, 0, 0]} color={"cyan"} />
+        <Lathe position={[2, 0, 0]} color={"lime"} />
+        <Extrude position={[-2, -1, 0]} color={"red"} />
+        <ShapeGeometry position={[-1, -1, 0]} color={"purple"} />
         <Text position={[0, -1, 0]} color={"hotpink"} />
-        <Torus position={[-1, -1, 0]} color={"hotpink"} />
-        <TorusKnot position={[-1, -2, 0]} color={"hotpink"} />
-        <Tube position={[0, -2, 0]} color={"cyan"} />
-        <Edges position={[1, -2, 0]} color={"hotpink"} />
-        <Wireframe position={[2, -2, 0]} color={"hotpink"} />
+        <Polyhedron position={[1, -1, 0]} color={"blue"} />
+        <Edges position={[-2, -2, 0]} color={"hotpink"} />
+        <Wireframe position={[-1, -2, 0]} color={"hotpink"} />
       </Canvas>
     </div>
   )
