@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react"
-import { SpotLightHelper, Object3D, SpotLight } from "three"
+import { SpotLight, SpotLightHelper, Object3D } from "three"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, useHelper } from "@react-three/drei"
 import { useControls } from "leva"
