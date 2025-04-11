@@ -16,6 +16,7 @@ import Lights from "./pages/Lights.tsx"
 import Shadows from "./pages/Shadows.tsx"
 import Cameras from "./pages/Cameras.tsx"
 import AmbientLight from "./pages/lights/AmbientLight.tsx"
+import HemisphereLight from "./pages/lights/HemisphereLight.tsx"
 import SpotLight from "./pages/lights/SpotLight.tsx"
 
 createRoot(document.getElementById("root")!).render(
@@ -36,6 +37,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="shadows" element={<Shadows />} />
         <Route path="cameras" element={<Cameras />} />
         <Route path="ambient-light" element={<AmbientLight />} />
+        <Route path="hemisphere-light" element={<HemisphereLight />} />
         <Route path="spot-light" element={<SpotLight />} />
       </Routes>
     </BrowserRouter>
