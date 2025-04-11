@@ -32,7 +32,7 @@ function DirectionalLightWithHelper() {
     }),
     lightControls: folder({
       intensity: { value: 5, min: 0, max: 100, step: 0.1 },
-      color: { value: "#ffffff" },
+      color: { value: "white" },
     }),
     helperControls: folder({
       helperSize: { value: 3, min: 0, max: 10, step: 0.1 },
