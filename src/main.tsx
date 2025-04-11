@@ -11,6 +11,7 @@ import Transforms from "./pages/Transforms"
 import FirstPersonControls from "./pages/FirstPersonControls.tsx"
 import OrbitControls from "./pages/OrbitControls.tsx"
 import HelperGizmos from "./pages/HelperGizmos.tsx"
+import LevaGui from "./pages/LevaGui.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -25,6 +26,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="first-person-controls" element={<FirstPersonControls />} />
         <Route path="orbit-controls" element={<OrbitControls />} />
         <Route path="helper-gizmos" element={<HelperGizmos />} />
+        <Route path="leva-gui" element={<LevaGui />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
