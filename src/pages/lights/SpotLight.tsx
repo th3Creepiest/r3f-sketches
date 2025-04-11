@@ -9,8 +9,8 @@ function SpotLightWithHelper({ wire_color }: { wire_color?: string } = {}) {
   const target = useRef<Object3D>(null!)
 
   const { intensity, position, angle, penumbra, color, distance, targetPosition, castShadow } = useControls({
-    position: { value: [0, 5, 0], min: -2, max: 2 },
-    targetPosition: { value: [0, 0, 0], min: -2, max: 2 },
+    position: { value: [0, 5, 0] },
+    targetPosition: { value: [0, 0, 0] },
     intensity: { value: 10, min: 0, max: 100, step: 0.1 },
     angle: { value: 0.6, min: 0, max: 1 },
     penumbra: { value: 0.4, min: 0, max: 1, step: 0.1 },
