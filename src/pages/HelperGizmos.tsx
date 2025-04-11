@@ -1,7 +1,7 @@
 import { useRef } from "react"
 import { Mesh } from "three"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { OrbitControls } from "@react-three/drei"
+import { OrbitControls, GizmoHelper, GizmoViewcube, GizmoViewport } from "@react-three/drei"
 
 function RotatingCube() {
   const boxRef = useRef<Mesh>(null!)
@@ -27,6 +27,10 @@ export default function Example() {
           <gridHelper args={[5, 5]} />
           <OrbitControls />
           <RotatingCube />
+          <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
+            <GizmoViewport />
+            <GizmoViewcube />
+          </GizmoHelper>
         </mesh>
       </Canvas>
     </div>
