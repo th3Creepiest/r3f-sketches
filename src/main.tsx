@@ -10,6 +10,7 @@ import Primitives from "./pages/Primitives"
 import Transforms from "./pages/Transforms"
 import FirstPersonControls from "./pages/FirstPersonControls.tsx"
 import OrbitControls from "./pages/OrbitControls.tsx"
+import HelperGizmos from "./pages/HelperGizmos.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -23,6 +24,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="transforms" element={<Transforms />} />
         <Route path="first-person-controls" element={<FirstPersonControls />} />
         <Route path="orbit-controls" element={<OrbitControls />} />
+        <Route path="helper-gizmos" element={<HelperGizmos />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

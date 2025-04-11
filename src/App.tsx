@@ -10,6 +10,7 @@ export default function App() {
       <Link to="transforms">Transforms</Link>
       <Link to="first-person-controls">First Person Controls</Link>
       <Link to="orbit-controls">Orbit Controls</Link>
+      <Link to="helper-gizmos">Helper Gizmos</Link>
     </div>
   )
 }
