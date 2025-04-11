@@ -8,6 +8,8 @@ import Example2 from "./pages/Example2"
 import Example3 from "./pages/Example3"
 import Primitives from "./pages/Primitives"
 import Transforms from "./pages/Transforms"
+import FirstPersonControls from "./pages/FirstPersonControls.tsx"
+import OrbitControls from "./pages/OrbitControls.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -19,6 +21,8 @@ createRoot(document.getElementById("root")!).render(
         <Route path="example-3" element={<Example3 />} />
         <Route path="primitives" element={<Primitives />} />
         <Route path="transforms" element={<Transforms />} />
+        <Route path="first-person-controls" element={<FirstPersonControls />} />
+        <Route path="orbit-controls" element={<OrbitControls />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
