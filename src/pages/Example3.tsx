@@ -13,20 +13,14 @@ function Box() {
   )
 }
 
-function ThreeScene() {
-  return (
-    <Canvas>
-      <ambientLight intensity={0.5} />
-      <pointLight position={[1, 1, 1]} />
-      <Box />
-    </Canvas>
-  )
-}
-
 export default function Example() {
   return (
     <div className="h-screen bg-black">
-      <ThreeScene />
+      <Canvas>
+        <ambientLight intensity={0.5} />
+        <pointLight position={[1, 1, 1]} />
+        <Box />
+      </Canvas>
     </div>
   )
 }
