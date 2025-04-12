@@ -6,12 +6,16 @@ interface CameraProps {
   position: [number, number, number]
   fov: number
   zoom: number
+  near: number
+  far: number
 }
 
 const defaultCameraProps: CameraProps = {
   position: [2, 2, 3],
-  fov: 75,
+  fov: 80,
   zoom: 1.5,
+  near: 1,
+  far: 5,
 }
 
 export default function Example() {
@@ -44,7 +48,7 @@ export default function Example() {
           </h2>
           <div className="h-48">
             <Canvas camera={defaultCameraProps}>
-              <directionalLight position={[2, 5, 1]} />
+              <directionalLight position={[2, 3, 1]} />
               <mesh>
                 <boxGeometry args={[2, 2, 2]} />
                 <meshStandardMaterial color="lime" />
@@ -60,10 +64,10 @@ export default function Example() {
           </h2>
           <div className="h-48">
             <Canvas camera={defaultCameraProps}>
-              <hemisphereLight position={[0, 0, 0]} />
+              <hemisphereLight groundColor={"royalblue"} color={"red"} intensity={5} />
               <mesh>
                 <boxGeometry args={[2, 2, 2]} />
-                <meshStandardMaterial color="lime" />
+                <meshStandardMaterial color="white" />
               </mesh>
               <OrbitControls enableZoom={false} />
             </Canvas>
@@ -76,7 +80,7 @@ export default function Example() {
           </h2>
           <div className="h-48">
             <Canvas camera={defaultCameraProps}>
-              <pointLight position={[0, 2, 0]} intensity={10} />
+              <pointLight position={[2, 2, 2]} intensity={10} />
               <mesh>
                 <boxGeometry args={[2, 2, 2]} />
                 <meshStandardMaterial color="lime" />
@@ -92,7 +96,11 @@ export default function Example() {
           </h2>
           <div className="h-48">
             <Canvas camera={defaultCameraProps}>
-              <rectAreaLight position={[0, 2, 0]} intensity={10} />
+              <rectAreaLight
+                position={[-2, 0, 0]}
+                rotation={[0, -Math.PI / 2, 0]}
+                intensity={8}
+              />
               <mesh>
                 <boxGeometry args={[2, 2, 2]} />
                 <meshStandardMaterial color="lime" />
@@ -108,7 +116,7 @@ export default function Example() {
           </h2>
           <div className="h-48">
             <Canvas camera={defaultCameraProps}>
-              <spotLight position={[0, 2, 0]} intensity={10} />
+              <spotLight position={[0, 2, 0]} intensity={10} angle={2} />
               <mesh>
                 <boxGeometry args={[2, 2, 2]} />
                 <meshStandardMaterial color="lime" />
