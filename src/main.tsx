@@ -12,9 +12,7 @@ import FirstPersonControls from "./pages/FirstPersonControls.tsx"
 import OrbitControls from "./pages/OrbitControls.tsx"
 import HelperGizmos from "./pages/HelperGizmos.tsx"
 import LevaGui from "./pages/LevaGui.tsx"
-import Shadows from "./pages/Shadows.tsx"
 import Cameras from "./pages/Cameras.tsx"
-
 import Lights from "./pages/lights/Lights.tsx"
 import AmbientLight from "./pages/lights/AmbientLight.tsx"
 import DirectionalLight from "./pages/lights/DirectionalLight.tsx"
@@ -37,9 +35,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="orbit-controls" element={<OrbitControls />} />
         <Route path="helper-gizmos" element={<HelperGizmos />} />
         <Route path="leva-gui" element={<LevaGui />} />
-        <Route path="shadows" element={<Shadows />} />
         <Route path="cameras" element={<Cameras />} />
-
         <Route path="lights" element={<Lights />} />
         <Route path="ambient-light" element={<AmbientLight />} />
         <Route path="directional-light" element={<DirectionalLight />} />
