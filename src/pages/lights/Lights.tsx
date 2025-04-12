@@ -2,6 +2,18 @@ import { Link } from "react-router"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls } from "@react-three/drei"
 
+interface CameraProps {
+  position: [number, number, number]
+  fov: number
+  zoom: number
+}
+
+const defaultCameraProps: CameraProps = {
+  position: [2, 2, 3],
+  fov: 75,
+  zoom: 1.5,
+}
+
 export default function Example() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-neutral-900 to-black p-6">
@@ -15,7 +27,7 @@ export default function Example() {
             Ambient Light
           </h2>
           <div className="h-48">
-            <Canvas>
+            <Canvas camera={defaultCameraProps}>
               <ambientLight intensity={0.5} />
               <mesh>
                 <boxGeometry args={[2, 2, 2]} />
@@ -31,7 +43,7 @@ export default function Example() {
             Directional Light
           </h2>
           <div className="h-48">
-            <Canvas>
+            <Canvas camera={defaultCameraProps}>
               <directionalLight position={[2, 5, 1]} />
               <mesh>
                 <boxGeometry args={[2, 2, 2]} />
@@ -47,7 +59,7 @@ export default function Example() {
             Hemisphere Light
           </h2>
           <div className="h-48">
-            <Canvas>
+            <Canvas camera={defaultCameraProps}>
               <hemisphereLight position={[0, 0, 0]} />
               <mesh>
                 <boxGeometry args={[2, 2, 2]} />
@@ -63,7 +75,7 @@ export default function Example() {
             Point Light
           </h2>
           <div className="h-48">
-            <Canvas>
+            <Canvas camera={defaultCameraProps}>
               <pointLight position={[0, 2, 0]} intensity={10} />
               <mesh>
                 <boxGeometry args={[2, 2, 2]} />
@@ -79,7 +91,7 @@ export default function Example() {
             Rect Area Light
           </h2>
           <div className="h-48">
-            <Canvas>
+            <Canvas camera={defaultCameraProps}>
               <rectAreaLight position={[0, 2, 0]} intensity={10} />
               <mesh>
                 <boxGeometry args={[2, 2, 2]} />
@@ -95,7 +107,7 @@ export default function Example() {
             Spot Light
           </h2>
           <div className="h-48">
-            <Canvas>
+            <Canvas camera={defaultCameraProps}>
               <spotLight position={[0, 2, 0]} intensity={10} />
               <mesh>
                 <boxGeometry args={[2, 2, 2]} />
