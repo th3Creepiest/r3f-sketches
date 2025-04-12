@@ -22,8 +22,23 @@ export default function Example() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-neutral-900 to-black p-6">
       <h1 className="text-3xl font-bold text-center text-white mb-8">
-        Three.js Light Types
+        Three.js Lights and Shadows
       </h1>
+
+      <section className="mt-4 mb-4">
+        <Canvas shadows camera={{ position: [1.2, 1.5, 2], fov: 126, zoom: 4 }}>
+          <spotLight castShadow position={[0, 2, 0]} />
+          <mesh castShadow position={[0, 0.5, 0]}>
+            <boxGeometry args={[1, 1, 1]} />
+            <meshStandardMaterial color="red" />
+          </mesh>
+          <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
+            <planeGeometry args={[20, 20]} />
+            <meshStandardMaterial color="white" />
+          </mesh>
+          <OrbitControls enableZoom={false} />
+        </Canvas>
+      </section>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         <div className="bg-neutral-800 rounded-lg overflow-hidden shadow-lg border border-neutral-700 hover:border-lime-500 transition-all">
