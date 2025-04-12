@@ -2,17 +2,31 @@ import { useRef } from "react"
 import { HemisphereLight, HemisphereLightHelper } from "three"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, useHelper } from "@react-three/drei"
-import { useControls } from "leva"
+import { useControls, folder } from "leva"
 
-function HemisphereLightWithHelper({ helper_size, helper_color }: { helper_size?: number; helper_color?: string }) {
+function HemisphereLightWithHelper() {
   const light = useRef<HemisphereLight>(null!)
-  const { intensity, skyColor, groundColor } = useControls({
-    intensity: { value: 5, min: 0, max: 100, step: 0.1 },
-    skyColor: { value: "royalblue" },
-    groundColor: { value: "orange" },
-  })
-  useHelper(light, HemisphereLightHelper, helper_size || 10, helper_color || "orange")
-  return <hemisphereLight ref={light} intensity={intensity} color={skyColor} groundColor={groundColor} />
+  const { intensity, skyColor, groundColor, helperSize, helperColor } =
+    useControls({
+      lightControls: folder({
+        intensity: { value: 5, min: 0, max: 100, step: 0.1 },
+        skyColor: { value: "royalblue" },
+        groundColor: { value: "brown" },
+      }),
+      helperControls: folder({
+        helperSize: { value: 3, min: 0, max: 10, step: 0.1 },
+        helperColor: { value: "orange" },
+      }),
+    })
+  useHelper(light, HemisphereLightHelper, helperSize, helperColor)
+  return (
+    <hemisphereLight
+      ref={light}
+      intensity={intensity}
+      color={skyColor}
+      groundColor={groundColor}
+    />
+  )
 }
 
 export default function Example() {
@@ -24,7 +38,11 @@ export default function Example() {
           <boxGeometry args={[2, 2, 2]} />
           <meshStandardMaterial />
         </mesh>
-        <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
+        <mesh
+          receiveShadow
+          rotation={[-Math.PI / 2, 0, 0]}
+          position={[0, 0, 0]}
+        >
           <planeGeometry args={[10, 10]} />
           <meshStandardMaterial />
         </mesh>

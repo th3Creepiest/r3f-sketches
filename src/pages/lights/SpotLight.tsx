@@ -4,11 +4,21 @@ import { Canvas } from "@react-three/fiber"
 import { OrbitControls, useHelper } from "@react-three/drei"
 import { useControls } from "leva"
 
-function SpotLightWithHelper({ wire_color: helper_color }: { wire_color?: string } = {}) {
+function SpotLightWithHelper() {
   const light = useRef<SpotLight>(null!)
   const target = useRef<Object3D>(null!)
 
-  const { intensity, position, angle, penumbra, color, distance, targetPosition, castShadow } = useControls({
+  const {
+    intensity,
+    position,
+    angle,
+    penumbra,
+    color,
+    distance,
+    targetPosition,
+    castShadow,
+    helperColor,
+  } = useControls({
     position: { value: [0, 5, 0] },
     targetPosition: { value: [0, 0, 0] },
     intensity: { value: 10, min: 0, max: 100, step: 0.1 },
@@ -17,9 +27,10 @@ function SpotLightWithHelper({ wire_color: helper_color }: { wire_color?: string
     distance: { value: 10, min: 1, max: 100, step: 1 },
     color: { value: "#ffffff" },
     castShadow: { value: true },
+    helperColor: { value: "orange" },
   })
 
-  useHelper(light, SpotLightHelper, helper_color || "orange")
+  useHelper(light, SpotLightHelper, helperColor)
 
   useEffect(() => {
     if (target.current && light.current) {
@@ -54,7 +65,11 @@ export default function Example() {
           <boxGeometry args={[2, 2, 2]} />
           <meshStandardMaterial />
         </mesh>
-        <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
+        <mesh
+          receiveShadow
+          position={[0, 0, 0]}
+          rotation={[-Math.PI / 2, 0, 0]}
+        >
           <planeGeometry args={[10, 10]} />
           <meshStandardMaterial />
         </mesh>
