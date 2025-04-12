@@ -2,56 +2,72 @@ import { useRef, useEffect } from "react"
 import { SpotLight, SpotLightHelper, Object3D } from "three"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, useHelper } from "@react-three/drei"
-import { useControls } from "leva"
+import { useControls, folder } from "leva"
 
 function SpotLightWithHelper() {
   const light = useRef<SpotLight>(null!)
   const target = useRef<Object3D>(null!)
 
   const {
+    positionX,
+    positionY,
+    positionZ,
+    targetX,
+    targetY,
+    targetZ,
     intensity,
-    position,
     angle,
     penumbra,
     color,
     distance,
-    targetPosition,
     castShadow,
     helperColor,
   } = useControls({
-    position: { value: [0, 5, 0] },
-    targetPosition: { value: [0, 0, 0] },
-    intensity: { value: 10, min: 0, max: 100, step: 0.1 },
-    angle: { value: 0.6, min: 0, max: 1 },
-    penumbra: { value: 0.4, min: 0, max: 1, step: 0.1 },
-    distance: { value: 10, min: 1, max: 100, step: 1 },
-    color: { value: "#ffffff" },
-    castShadow: { value: true },
-    helperColor: { value: "orange" },
+    lightPosition: folder({
+      positionX: { value: 0, min: -10, max: 10, step: 0.1 },
+      positionY: { value: 5, min: -10, max: 10, step: 0.1 },
+      positionZ: { value: 0, min: -10, max: 10, step: 0.1 },
+    }),
+    targetPosition: folder({
+      targetX: { value: 0, min: -10, max: 10, step: 0.1 },
+      targetY: { value: 0, min: -10, max: 10, step: 0.1 },
+      targetZ: { value: 0, min: -10, max: 10, step: 0.1 },
+    }),
+    lightControls: folder({
+      intensity: { value: 10, min: 0, max: 100, step: 0.1 },
+      angle: { value: 0.6, min: 0, max: 1 },
+      penumbra: { value: 0.4, min: 0, max: 1, step: 0.1 },
+      distance: { value: 10, min: 1, max: 100, step: 1 },
+      color: { value: "white" },
+      castShadow: { value: true },
+    }),
+    helperControls: folder({
+      helperColor: { value: "orange" },
+    }),
   })
 
   useHelper(light, SpotLightHelper, helperColor)
 
   useEffect(() => {
     if (target.current && light.current) {
-      target.current.position.set(...targetPosition)
+      target.current.position.set(...[targetX, targetY, targetZ])
       light.current.target = target.current
     }
-  }, [targetPosition])
+  }, [[targetX, targetY, targetZ]])
 
   return (
     <>
       <spotLight
         ref={light}
         intensity={intensity}
-        position={position}
+        position={[positionX, positionY, positionZ]}
         angle={angle}
         penumbra={penumbra}
         color={color}
         distance={distance}
         castShadow={castShadow}
       />
-      <object3D ref={target} position={targetPosition} />
+      <object3D ref={target} position={[targetX, targetY, targetZ]} />
     </>
   )
 }
