@@ -1,5 +1,6 @@
-import { OrbitControls } from "@react-three/drei"
+import { Link } from "react-router"
 import { Canvas } from "@react-three/fiber"
+import { OrbitControls } from "@react-three/drei"
 
 export default function Example() {
   return (
@@ -50,6 +51,13 @@ export default function Example() {
           </Canvas>
         </div>
       </section>
+
+      <Link to="/ambient-light">Ambient Light</Link>
+      <Link to="/directional-light">Directional Light</Link>
+      <Link to="/hemisphere-light">Hemisphere Light</Link>
+      <Link to="/point-light">Point Light</Link>
+      <Link to="/rect-area-light">Rect Area Light</Link>
+      <Link to="/spot-light">Spot Light</Link>
     </>
   )
 }
