@@ -19,6 +19,7 @@ export default function App() {
       <Link to="directional-light">Directional Light</Link>
       <Link to="hemisphere-light">Hemisphere Light</Link>
       <Link to="point-light">Point Light</Link>
+      <Link to="rect-area-light">Rect Area Light</Link>
       <Link to="spot-light">Spot Light</Link>
     </div>
   )
