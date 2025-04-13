@@ -7,7 +7,7 @@ import { useControls, folder } from "leva"
 export default function Example() {
   const material = useRef<MeshPhongMaterial>(null)
   const { color, shininess, flatShading, wireframe } = useControls({
-    Material_Settings: folder({
+    Phong_Material_Settings: folder({
       color: { value: "royalblue" },
       shininess: { value: 30, min: 0, max: 250 },
       wireframe: { value: false },
