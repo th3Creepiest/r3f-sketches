@@ -19,6 +19,7 @@ import SpotLight from "./pages/lights/SpotLight.tsx"
 
 import Materials from "./pages/materials/Materials.tsx"
 import MeshBasicMaterial from "./pages/materials/MeshBasicMaterial.tsx"
+import MeshDepthMaterial from "./pages/materials/MeshDepthMaterial.tsx"
 import MeshLambertMaterial from "./pages/materials/MeshLambertMaterial.tsx"
 import MeshPhongMaterial from "./pages/materials/MeshPhongMaterial.tsx"
 import MeshPhysicalMaterial from "./pages/materials/MeshPhysicalMaterial.tsx"
@@ -53,6 +54,7 @@ createRoot(document.getElementById("root")!).render(
 
         <Route path="materials" element={<Materials />} />
         <Route path="mesh-basic-material" element={<MeshBasicMaterial />} />
+        <Route path="mesh-depth-material" element={<MeshDepthMaterial />} />
         <Route path="mesh-lambert-material" element={<MeshLambertMaterial />} />
         <Route path="mesh-phong-material" element={<MeshPhongMaterial />} />
         <Route path="mesh-physical-material" element={<MeshPhysicalMaterial />} />
