@@ -16,13 +16,18 @@ export default function App() {
 
 function Cameras() {
   const links = [
-    { to: "cameras", text: "Cameras" },
     { to: "first-person-controls", text: "First Person Controls" },
     { to: "orbit-controls", text: "Orbit Controls" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
-      <h2 className="text-xl font-semibold mb-4">Cameras</h2>
+      <Link
+        key={"cameras"}
+        to={"cameras"}
+        className="hover:text-blue-400 transition-colors"
+      >
+        <h2 className="text-xl font-semibold mb-4">Cameras</h2>
+      </Link>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {links.map(({ to, text }) => (
           <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
@@ -36,7 +41,6 @@ function Cameras() {
 
 function Lights() {
   const links = [
-    { to: "lights", text: "Lights" },
     { to: "ambient-light", text: "Ambient Light" },
     { to: "directional-light", text: "Directional Light" },
     { to: "hemisphere-light", text: "Hemisphere Light" },
@@ -46,7 +50,13 @@ function Lights() {
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
-      <h2 className="text-xl font-semibold mb-4">Lights</h2>
+      <Link
+        key={"lights"}
+        to={"lights"}
+        className="hover:text-blue-400 transition-colors"
+      >
+        <h2 className="text-xl font-semibold mb-4">Lights</h2>
+      </Link>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {links.map(({ to, text }) => (
           <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
@@ -60,7 +70,6 @@ function Lights() {
 
 function Materials() {
   const links = [
-    { to: "materials", text: "Materials" },
     { to: "mesh-basic-material", text: "Mesh Basic Material" },
     { to: "mesh-depth-material", text: "Mesh Depth Material" },
     { to: "mesh-lambert-material", text: "Mesh Lambert Material" },
@@ -72,7 +81,13 @@ function Materials() {
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
-      <h2 className="text-xl font-semibold mb-4">Materials</h2>
+      <Link
+        key={"materials"}
+        to={"materials"}
+        className="hover:text-blue-400 transition-colors"
+      >
+        <h2 className="text-xl font-semibold mb-4">Materials</h2>
+      </Link>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {links.map(({ to, text }) => (
           <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
