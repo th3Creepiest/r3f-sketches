@@ -40,6 +40,7 @@ function Materials() {
   const links = [
     { to: "materials", text: "Materials" },
     { to: "mesh-basic-material", text: "Mesh Basic Material" },
+    { to: "mesh-lambert-material", text: "Mesh Lambert Material" },
     { to: "mesh-phong-material", text: "Mesh Phong Material" },
   ]
   return (
