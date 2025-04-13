@@ -3,6 +3,7 @@ import { Link } from "react-router"
 export default function App() {
   return (
     <div className="min-h-screen bg-black text-white p-8">
+      <h1 className="text-3xl font-bold text-center text-white mb-8">Three</h1>
       <nav className="max-w-2xl mx-auto space-y-6">
         <Cameras />
         <Lights />
