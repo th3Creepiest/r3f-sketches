@@ -23,6 +23,10 @@ export default function Example() {
           <sphereGeometry />
           <meshToonMaterial color="hotpink" />
         </mesh>
+        <mesh position={[3, 0, 0]}>
+          <sphereGeometry />
+          <meshStandardMaterial color="hotpink" />
+        </mesh>
         <OrbitControls />
       </Canvas>
     </div>
