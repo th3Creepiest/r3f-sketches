@@ -13,6 +13,9 @@ import OrbitControls from "./pages/OrbitControls.tsx"
 import HelperGizmos from "./pages/HelperGizmos.tsx"
 import LevaGui from "./pages/LevaGui.tsx"
 import Cameras from "./pages/Cameras.tsx"
+import Materials from "./pages/materials/Materials.tsx"
+import MeshBasicMaterial from "./pages/materials/MeshBasicMaterial.tsx"
+import MeshPhongMaterial from "./pages/materials/MeshPhongMaterial.tsx"
 import Lights from "./pages/lights/Lights.tsx"
 import AmbientLight from "./pages/lights/AmbientLight.tsx"
 import DirectionalLight from "./pages/lights/DirectionalLight.tsx"
@@ -36,6 +39,9 @@ createRoot(document.getElementById("root")!).render(
         <Route path="helper-gizmos" element={<HelperGizmos />} />
         <Route path="leva-gui" element={<LevaGui />} />
         <Route path="cameras" element={<Cameras />} />
+        <Route path="materials" element={<Materials />} />
+        <Route path="mesh-basic-material" element={<MeshBasicMaterial />} />
+        <Route path="mesh-phong-material" element={<MeshPhongMaterial />} />
         <Route path="lights" element={<Lights />} />
         <Route path="ambient-light" element={<AmbientLight />} />
         <Route path="directional-light" element={<DirectionalLight />} />

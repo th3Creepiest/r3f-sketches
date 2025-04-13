@@ -38,6 +38,21 @@ export default function App() {
           <Link to="cameras" className="hover:text-blue-400 transition-colors">
             Cameras
           </Link>
+          <Link to="materials" className="hover:text-blue-400 transition-colors">
+            Materials
+          </Link>
+          <Link
+            to="mesh-basic-material"
+            className="hover:text-blue-400 transition-colors"
+          >
+            Mesh Basic Material
+          </Link>
+          <Link
+            to="mesh-phong-material"
+            className="hover:text-blue-400 transition-colors"
+          >
+            Mesh Phong Material
+          </Link>
         </div>
         <section className="border-t border-gray-800 pt-6">
           <h2 className="text-xl font-semibold mb-4">Lighting</h2>
