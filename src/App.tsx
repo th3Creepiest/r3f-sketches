@@ -24,7 +24,7 @@ function Cameras() {
       <Link
         key={"cameras"}
         to={"cameras"}
-        className="hover:text-blue-400 transition-colors"
+        className="hover:text-red-400 transition-colors"
       >
         <h2 className="text-xl font-semibold mb-4">Cameras</h2>
       </Link>
@@ -50,11 +50,7 @@ function Lights() {
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
-      <Link
-        key={"lights"}
-        to={"lights"}
-        className="hover:text-blue-400 transition-colors"
-      >
+      <Link key={"lights"} to={"lights"} className="hover:text-red-400 transition-colors">
         <h2 className="text-xl font-semibold mb-4">Lights</h2>
       </Link>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -84,7 +80,7 @@ function Materials() {
       <Link
         key={"materials"}
         to={"materials"}
-        className="hover:text-blue-400 transition-colors"
+        className="hover:text-red-400 transition-colors"
       >
         <h2 className="text-xl font-semibold mb-4">Materials</h2>
       </Link>
