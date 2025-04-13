@@ -92,6 +92,7 @@ function Other() {
     { to: "transforms", text: "Transforms" },
     { to: "helper-gizmos", text: "Helper Gizmos" },
     { to: "leva-gui", text: "Leva GUI" },
+    { to: "textures", text: "Textures" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
