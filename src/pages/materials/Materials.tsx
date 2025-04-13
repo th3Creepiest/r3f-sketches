@@ -6,6 +6,7 @@ export default function Example() {
     <div className="h-screen">
       <Canvas>
         <ambientLight />
+        <pointLight position={[0, 3, 0]} intensity={10} />
         <mesh position={[-1, 0, 0]}>
           <sphereGeometry />
           <meshBasicMaterial color="hotpink" />
