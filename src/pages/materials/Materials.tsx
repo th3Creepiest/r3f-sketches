@@ -19,6 +19,10 @@ export default function Example() {
           <sphereGeometry />
           <meshPhongMaterial color="hotpink" />
         </mesh>
+        <mesh position={[2, 0, 0]}>
+          <sphereGeometry />
+          <meshToonMaterial color="hotpink" />
+        </mesh>
         <OrbitControls />
       </Canvas>
     </div>
