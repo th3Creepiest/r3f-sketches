@@ -2,12 +2,13 @@ import { Link } from "react-router"
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-black text-white p-8">
+    <div className="min-h-screen bg-black text-white p-6">
       <h1 className="text-3xl font-bold text-center text-white mb-8">Three.js</h1>
       <nav className="max-w-2xl mx-auto space-y-6">
         <Cameras />
         <Lights />
         <Materials />
+        <Textures />
         <Other />
       </nav>
     </div>
@@ -95,6 +96,25 @@ function Materials() {
   )
 }
 
+function Textures() {
+  const links = [
+    { to: "textures-1", text: "Textures 1" },
+    { to: "textures-2", text: "Textures 2" },
+  ]
+  return (
+    <section className="border-t border-gray-800 pt-6">
+      <h2 className="text-xl font-semibold mb-4">Textures</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {links.map(({ to, text }) => (
+          <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
+            {text}
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 function Other() {
   const links = [
     { to: "example-1", text: "Example 1" },
@@ -104,7 +124,6 @@ function Other() {
     { to: "transforms", text: "Transforms" },
     { to: "helper-gizmos", text: "Helper Gizmos" },
     { to: "leva-gui", text: "Leva GUI" },
-    { to: "textures", text: "Textures" },
     { to: "fog", text: "Fog" },
   ]
   return (

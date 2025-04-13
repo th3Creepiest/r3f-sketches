@@ -27,6 +27,9 @@ import MeshPhysicalMaterial from "./pages/materials/MeshPhysicalMaterial.tsx"
 import MeshStandardMaterial from "./pages/materials/MeshStandardMaterial.tsx"
 import MeshToonMaterial from "./pages/materials/MeshToonMaterial.tsx"
 
+import Textures1 from "./pages/textures/Textures1.tsx"
+import Textures2 from "./pages/textures/Textures2.tsx"
+
 import Example1 from "./pages/Example1"
 import Example2 from "./pages/Example2"
 import Example3 from "./pages/Example3"
@@ -34,7 +37,6 @@ import Primitives from "./pages/Primitives"
 import Transforms from "./pages/Transforms"
 import HelperGizmos from "./pages/HelperGizmos.tsx"
 import LevaGui from "./pages/LevaGui.tsx"
-import Textures from "./pages/Textures"
 import Fog from "./pages/Fog"
 
 createRoot(document.getElementById("root")!).render(
@@ -65,6 +67,9 @@ createRoot(document.getElementById("root")!).render(
         <Route path="mesh-standard-material" element={<MeshStandardMaterial />} />
         <Route path="mesh-toon-material" element={<MeshToonMaterial />} />
 
+        <Route path="textures-1" element={<Textures1 />} />
+        <Route path="textures-2" element={<Textures2 />} />
+
         <Route path="example-1" element={<Example1 />} />
         <Route path="example-2" element={<Example2 />} />
         <Route path="example-3" element={<Example3 />} />
@@ -72,7 +77,6 @@ createRoot(document.getElementById("root")!).render(
         <Route path="transforms" element={<Transforms />} />
         <Route path="helper-gizmos" element={<HelperGizmos />} />
         <Route path="leva-gui" element={<LevaGui />} />
-        <Route path="textures" element={<Textures />} />
         <Route path="fog" element={<Fog />} />
       </Routes>
     </BrowserRouter>
