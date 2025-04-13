@@ -35,6 +35,7 @@ import Transforms from "./pages/Transforms"
 import HelperGizmos from "./pages/HelperGizmos.tsx"
 import LevaGui from "./pages/LevaGui.tsx"
 import Textures from "./pages/Textures"
+import Fog from "./pages/Fog"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -72,6 +73,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="helper-gizmos" element={<HelperGizmos />} />
         <Route path="leva-gui" element={<LevaGui />} />
         <Route path="textures" element={<Textures />} />
+        <Route path="fog" element={<Fog />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
