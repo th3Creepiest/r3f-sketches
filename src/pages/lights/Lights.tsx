@@ -142,6 +142,10 @@ export default function Example() {
         </div>
       </div>
 
+      <div className="text-center text-neutral-400 text-sm italic mb-8">
+        <p>Interact with each material by dragging to rotate the view.</p>
+      </div>
+
       <section className="flex flex-wrap justify-center gap-4 mt-8">
         <Link
           to="/ambient-light"
