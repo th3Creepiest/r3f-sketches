@@ -63,6 +63,7 @@ function Materials() {
     { to: "mesh-basic-material", text: "Mesh Basic Material" },
     { to: "mesh-depth-material", text: "Mesh Depth Material" },
     { to: "mesh-lambert-material", text: "Mesh Lambert Material" },
+    { to: "mesh-normal-material", text: "Mesh Normal Material" },
     { to: "mesh-phong-material", text: "Mesh Phong Material" },
     { to: "mesh-physical-material", text: "Mesh Physical Material" },
     { to: "mesh-standard-material", text: "Mesh Standard Material" },
