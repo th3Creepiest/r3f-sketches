@@ -63,6 +63,7 @@ function Materials() {
     { to: "mesh-basic-material", text: "Mesh Basic Material" },
     { to: "mesh-lambert-material", text: "Mesh Lambert Material" },
     { to: "mesh-phong-material", text: "Mesh Phong Material" },
+    { to: "mesh-toon-material", text: "Mesh Toon Material" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">

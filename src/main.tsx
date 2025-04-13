@@ -21,6 +21,7 @@ import Materials from "./pages/materials/Materials.tsx"
 import MeshBasicMaterial from "./pages/materials/MeshBasicMaterial.tsx"
 import MeshLambertMaterial from "./pages/materials/MeshLambertMaterial.tsx"
 import MeshPhongMaterial from "./pages/materials/MeshPhongMaterial.tsx"
+import MeshToonMaterial from "./pages/materials/MeshToonMaterial.tsx"
 
 import Example1 from "./pages/Example1"
 import Example2 from "./pages/Example2"
@@ -52,6 +53,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="mesh-basic-material" element={<MeshBasicMaterial />} />
         <Route path="mesh-lambert-material" element={<MeshLambertMaterial />} />
         <Route path="mesh-phong-material" element={<MeshPhongMaterial />} />
+        <Route path="mesh-toon-material" element={<MeshToonMaterial />} />
 
         <Route path="example-1" element={<Example1 />} />
         <Route path="example-2" element={<Example2 />} />
