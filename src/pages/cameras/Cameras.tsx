@@ -96,6 +96,12 @@ export default function Example() {
         >
           First Person Controls
         </Link>
+        <Link
+          to="/perspective-camera"
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-md shadow-md transition-colors duration-300"
+        >
+          Perspective Camera
+        </Link>
       </section>
     </div>
   )

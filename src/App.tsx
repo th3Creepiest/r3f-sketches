@@ -19,6 +19,7 @@ function Cameras() {
   const links = [
     { to: "first-person-controls", text: "First Person Controls" },
     { to: "orbit-controls", text: "Orbit Controls" },
+    { to: "perspective-camera", text: "Perspective Camera" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
