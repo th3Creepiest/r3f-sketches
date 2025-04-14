@@ -6,7 +6,7 @@ import { useControls, folder } from "leva"
 
 export default function Example() {
   const { aspect, fov, zoom, near, far, filmOffset, filmGauge } = useControls({
-    Camera_Settings: folder({
+    Perspective_Camera_Settings: folder({
       aspect: { value: 1, min: -2, max: 10, step: 0.01 },
       fov: { value: 50, min: 1, max: 180, step: 1 },
       zoom: { value: 1, min: 1, max: 10, step: 0.1 },
@@ -29,7 +29,7 @@ export default function Example() {
       perspectiveCamera.filmOffset = filmOffset
       perspectiveCamera.filmGauge = filmGauge
       perspectiveCamera.updateProjectionMatrix()
-    }, [perspectiveCamera, fov, near, far])
+    }, [perspectiveCamera, aspect, fov, zoom, near, far, filmOffset, filmGauge])
     return null
   }
 
