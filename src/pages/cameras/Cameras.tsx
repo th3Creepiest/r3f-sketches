@@ -102,6 +102,12 @@ export default function Example() {
         >
           Perspective Camera
         </Link>
+        <Link
+          to="/orthographic-camera"
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-md shadow-md transition-colors duration-300"
+        >
+          Orthographic Camera
+        </Link>
       </section>
     </div>
   )
