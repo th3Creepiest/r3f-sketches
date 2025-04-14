@@ -2,9 +2,10 @@ import { useState } from "react"
 import { PerspectiveCamera } from "three"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, Grid } from "@react-three/drei"
-import { useControls, folder } from "leva"
+import { useControls } from "leva"
 
 export default function Example() {
+  const [helperKey, setHelperKey] = useState(0)
   const [controlledCamera] = useState(() => {
     const camera = new PerspectiveCamera(45, 1, 0.1, 100)
     camera.position.set(0, 10, 20)
@@ -13,38 +14,83 @@ export default function Example() {
   })
 
   useControls({
-    camera: folder({
-      fov: {
-        value: 45,
-        min: 1,
-        max: 180,
-        step: 1,
-        onChange: (v) => {
-          controlledCamera.fov = v
-          controlledCamera.updateProjectionMatrix()
-        },
+    aspect: {
+      value: 1,
+      min: -2,
+      max: 10,
+      step: 0.01,
+      onChange: (v) => {
+        controlledCamera.aspect = v
+        controlledCamera.updateProjectionMatrix()
+        setHelperKey((prev) => prev + 1)
       },
-      near: {
-        value: 0.1,
-        min: 0.1,
-        max: 50,
-        step: 0.1,
-        onChange: (v) => {
-          controlledCamera.near = v
-          controlledCamera.updateProjectionMatrix()
-        },
+    },
+    fov: {
+      value: 50,
+      min: 1,
+      max: 180,
+      step: 1,
+      onChange: (v) => {
+        controlledCamera.fov = v
+        controlledCamera.updateProjectionMatrix()
+        setHelperKey((prev) => prev + 1)
       },
-      far: {
-        value: 100,
-        min: 0.1,
-        max: 100,
-        step: 0.1,
-        onChange: (v) => {
-          controlledCamera.far = v
-          controlledCamera.updateProjectionMatrix()
-        },
+    },
+    zoom: {
+      value: 1,
+      min: 1,
+      max: 10,
+      step: 0.1,
+      onChange: (v) => {
+        controlledCamera.zoom = v
+        controlledCamera.updateProjectionMatrix()
+        setHelperKey((prev) => prev + 1)
       },
-    }),
+    },
+    near: {
+      value: 10,
+      min: 0.1,
+      max: 50,
+      step: 0.1,
+      onChange: (v) => {
+        controlledCamera.near = v
+        controlledCamera.updateProjectionMatrix()
+        setHelperKey((prev) => prev + 1)
+      },
+    },
+    far: {
+      value: 45,
+      min: 0.1,
+      max: 100,
+      step: 0.1,
+      onChange: (v) => {
+        controlledCamera.far = v
+        controlledCamera.updateProjectionMatrix()
+        setHelperKey((prev) => prev + 1)
+      },
+    },
+    filmOffset: {
+      value: 0,
+      min: -10,
+      max: 10,
+      step: 0.01,
+      onChange: (v) => {
+        controlledCamera.filmOffset = v
+        controlledCamera.updateProjectionMatrix()
+        setHelperKey((prev) => prev + 1)
+      },
+    },
+    filmGauge: {
+      value: 35,
+      min: 1,
+      max: 100,
+      step: 0.01,
+      onChange: (v) => {
+        controlledCamera.filmGauge = v
+        controlledCamera.updateProjectionMatrix()
+        setHelperKey((prev) => prev + 1)
+      },
+    },
   })
 
   return (
@@ -59,7 +105,7 @@ export default function Example() {
         <div className="w-1/2 h-full">
           <Canvas camera={{ position: [40, 10, 30], fov: 60, near: 0.1, far: 500 }}>
             <Scene />
-            <cameraHelper args={[controlledCamera]} />
+            <cameraHelper key={helperKey} args={[controlledCamera]} />
             <OrbitControls target={[0, 5, 0]} />
           </Canvas>
         </div>
