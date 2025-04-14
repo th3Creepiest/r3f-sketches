@@ -6,10 +6,12 @@ import "./index.css"
 import App from "./App.tsx"
 
 import Cameras from "./pages/cameras/Cameras.tsx"
-import FirstPersonControls from "./pages/cameras/FirstPersonControls.tsx"
-import OrbitControls from "./pages/cameras/OrbitControls.tsx"
 import PerspectiveCamera from "./pages/cameras/PerspectiveCamera.tsx"
+import PerspectiveCameraHelper from "./pages/cameras/PerspectiveCameraHelper.tsx"
 import OrthographicCamera from "./pages/cameras/OrthographicCamera.tsx"
+import OrthographicCameraHelper from "./pages/cameras/OrthographicCameraHelper.tsx"
+import OrbitControls from "./pages/cameras/OrbitControls.tsx"
+import FirstPersonControls from "./pages/cameras/FirstPersonControls.tsx"
 
 import Lights from "./pages/lights/Lights.tsx"
 import AmbientLight from "./pages/lights/AmbientLight.tsx"
@@ -48,10 +50,12 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<App />} />
 
         <Route path="cameras" element={<Cameras />} />
-        <Route path="first-person-controls" element={<FirstPersonControls />} />
-        <Route path="orbit-controls" element={<OrbitControls />} />
         <Route path="perspective-camera" element={<PerspectiveCamera />} />
+        <Route path="perspective-camera-helper" element={<PerspectiveCameraHelper />} />
         <Route path="orthographic-camera" element={<OrthographicCamera />} />
+        <Route path="orthographic-camera-helper" element={<OrthographicCameraHelper />} />
+        <Route path="orbit-controls" element={<OrbitControls />} />
+        <Route path="first-person-controls" element={<FirstPersonControls />} />
 
         <Route path="lights" element={<Lights />} />
         <Route path="ambient-light" element={<AmbientLight />} />

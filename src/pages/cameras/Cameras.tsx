@@ -1,40 +1,6 @@
-import { OrthographicCamera, PerspectiveCamera } from "three"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls } from "@react-three/drei"
 import { Link } from "react-router"
-
-interface CameraCardProps {
-  title: string
-  children: React.ReactNode
-}
-
-function CameraCard({ title, children }: CameraCardProps) {
-  return (
-    <div className="bg-neutral-800 rounded-lg overflow-hidden shadow-lg border border-neutral-700 hover:border-blue-500 transition-all">
-      <h2 className="text-xl font-semibold text-white p-3 bg-neutral-700">{title}</h2>
-      <div className="h-48">{children}</div>
-    </div>
-  )
-}
-
-function PerspectiveCameraHelper() {
-  const fov = 60
-  const camera = new PerspectiveCamera(fov, 1, 1, 3)
-  return (
-    <group position={[0, 0, 2]}>
-      <cameraHelper args={[camera]} />
-    </group>
-  )
-}
-
-function OrthographicCameraHelper() {
-  const camera = new OrthographicCamera(-2, 2, 2, -2, 1, 4)
-  return (
-    <group position={[0, 0, 2]}>
-      <cameraHelper args={[camera]} />
-    </group>
-  )
-}
 
 export default function Example() {
   return (
@@ -44,39 +10,52 @@ export default function Example() {
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <CameraCard title="Perspective Camera">
-          <Canvas camera={{ position: [2, 2, 2], fov: 60, near: 1, far: 4 }}>
-            <directionalLight />
-            <mesh>
-              <boxGeometry />
-              <meshStandardMaterial color="blue" />
-            </mesh>
-            <PerspectiveCameraHelper />
-            <OrbitControls enableZoom={false} />
-          </Canvas>
-        </CameraCard>
-
-        <CameraCard title="Orthographic Camera">
-          <Canvas
-            orthographic
-            camera={{
-              position: [2, 2, 2],
-              left: -2,
-              right: 2,
-              top: 2,
-              bottom: -2,
-              zoom: 1,
-            }}
-          >
-            <directionalLight />
-            <mesh>
-              <boxGeometry />
-              <meshStandardMaterial color="blue" />
-            </mesh>
-            <OrthographicCameraHelper />
-            <OrbitControls enableZoom={false} />
-          </Canvas>
-        </CameraCard>
+        <div className="bg-neutral-800 rounded-lg overflow-hidden shadow-lg border border-neutral-700 hover:border-blue-500 transition-all">
+          <h2 className="text-xl font-semibold text-white p-3 bg-neutral-700">
+            Perspective Camera
+          </h2>
+          <div className="h-48">
+            <Canvas camera={{ position: [2, 1.5, 2], fov: 50, zoom: 1, near: 1, far: 6 }}>
+              <ambientLight intensity={0.5} />
+              <directionalLight />
+              <pointLight position={[1, 1, -1]} intensity={1} />
+              <mesh position={[0, 0.5, 0]}>
+                <boxGeometry />
+                <meshStandardMaterial color="royalblue" />
+              </mesh>
+              <OrbitControls />
+              <gridHelper args={[2, 8, "hotpink", "royalblue"]} />
+            </Canvas>
+          </div>
+        </div>
+        <div className="bg-neutral-800 rounded-lg overflow-hidden shadow-lg border border-neutral-700 hover:border-blue-500 transition-all">
+          <h2 className="text-xl font-semibold text-white p-3 bg-neutral-700">
+            Orthographic Camera
+          </h2>
+          <div className="h-48">
+            <Canvas
+              orthographic
+              camera={{
+                position: [2, 1, 2],
+                left: -3,
+                right: 3,
+                top: 2,
+                bottom: -1,
+                zoom: 1.2,
+              }}
+            >
+              <ambientLight intensity={0.5} />
+              <directionalLight />
+              <pointLight position={[1, 1, -1]} intensity={1} />
+              <mesh position={[0, 0.5, 0]}>
+                <boxGeometry />
+                <meshStandardMaterial color="royalblue" />
+              </mesh>
+              <OrbitControls />
+              <gridHelper args={[2, 8, "hotpink", "royalblue"]} />
+            </Canvas>
+          </div>
+        </div>
       </div>
 
       <div className="text-center text-neutral-400 text-sm italic mb-8">
@@ -85,10 +64,28 @@ export default function Example() {
 
       <section className="flex flex-wrap justify-center gap-4 mt-8">
         <Link
-          to="/orbit-controls"
+          to="/perspective-camera"
           className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-md shadow-md transition-colors duration-300"
         >
-          Orbit Controls
+          Perspective Camera
+        </Link>
+        <Link
+          to="/perspective-camera-helper"
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-md shadow-md transition-colors duration-300"
+        >
+          Perspective Camera Helper
+        </Link>
+        <Link
+          to="/orthographic-camera"
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-md shadow-md transition-colors duration-300"
+        >
+          Orthographic Camera
+        </Link>
+        <Link
+          to="/orthographic-camera-helper"
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-md shadow-md transition-colors duration-300"
+        >
+          Orthographic Camera Helper
         </Link>
         <Link
           to="/first-person-controls"
@@ -97,16 +94,10 @@ export default function Example() {
           First Person Controls
         </Link>
         <Link
-          to="/perspective-camera"
+          to="/orbit-controls"
           className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-md shadow-md transition-colors duration-300"
         >
-          Perspective Camera
-        </Link>
-        <Link
-          to="/orthographic-camera"
-          className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-md shadow-md transition-colors duration-300"
-        >
-          Orthographic Camera
+          Orbit Controls
         </Link>
       </section>
     </div>

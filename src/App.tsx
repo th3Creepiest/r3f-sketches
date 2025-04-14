@@ -17,10 +17,12 @@ export default function App() {
 
 function Cameras() {
   const links = [
-    { to: "first-person-controls", text: "First Person Controls" },
-    { to: "orbit-controls", text: "Orbit Controls" },
     { to: "perspective-camera", text: "Perspective Camera" },
+    { to: "perspective-camera-helper", text: "Perspective Camera Helper" },
     { to: "orthographic-camera", text: "Orthographic Camera" },
+    { to: "orthographic-camera-helper", text: "Orthographic Camera Helper" },
+    { to: "orbit-controls", text: "Orbit Controls" },
+    { to: "first-person-controls", text: "First Person Controls" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
