@@ -40,6 +40,7 @@ import BrightnessContrast from "./pages/postprocessing/BrightnessContrast.tsx"
 import ChromaticAberration from "./pages/postprocessing/ChromaticAberration.tsx"
 import ColorAverage from "./pages/postprocessing/ColorAverage.tsx"
 import DepthOfField from "./pages/postprocessing/DepthOfField.tsx"
+import DotScreen from "./pages/postprocessing/DotScreen.tsx"
 
 import Textures1 from "./pages/textures/Textures1.tsx"
 import Textures2 from "./pages/textures/Textures2.tsx"
@@ -98,6 +99,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="chromatic-aberration" element={<ChromaticAberration />} />
         <Route path="color-average" element={<ColorAverage />} />
         <Route path="depth-of-field" element={<DepthOfField />} />
+        <Route path="dot-screen" element={<DotScreen />} />
 
         <Route path="textures-1" element={<Textures1 />} />
         <Route path="textures-2" element={<Textures2 />} />
@@ -247,6 +249,7 @@ function Postprocessing() {
     { to: "chromatic-aberration", text: "Chromatic Aberration" },
     { to: "color-average", text: "Color Average" },
     { to: "depth-of-field", text: "Depth of Field" },
+    { to: "dot-screen", text: "Dot Screen" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
