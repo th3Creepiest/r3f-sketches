@@ -33,6 +33,8 @@ import PhysicsExample1 from "./pages/physics/Example1.tsx"
 import PhysicsExample2 from "./pages/physics/Example2.tsx"
 import PhysicsExample3 from "./pages/physics/Example3.tsx"
 
+import Autofocus from "./pages/postprocessing/Autofocus.tsx"
+
 import Textures1 from "./pages/textures/Textures1.tsx"
 import Textures2 from "./pages/textures/Textures2.tsx"
 
@@ -83,6 +85,8 @@ createRoot(document.getElementById("root")!).render(
         <Route path="physics-example-2" element={<PhysicsExample2 />} />
         <Route path="physics-example-3" element={<PhysicsExample3 />} />
 
+        <Route path="autofocus" element={<Autofocus />} />
+
         <Route path="textures-1" element={<Textures1 />} />
         <Route path="textures-2" element={<Textures2 />} />
 
@@ -110,6 +114,7 @@ export default function App() {
         <Lights />
         <Materials />
         <Physics />
+        <Postprocessing />
         <Textures />
         <Other />
       </nav>
@@ -211,6 +216,21 @@ function Physics() {
   return (
     <section className="border-t border-gray-800 pt-6">
       <h2 className="text-xl font-semibold mb-4">Physics</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {links.map(({ to, text }) => (
+          <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
+            {text}
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+function Postprocessing() {
+  const links = [{ to: "autofocus", text: "Autofocus" }]
+  return (
+    <section className="border-t border-gray-800 pt-6">
+      <h2 className="text-xl font-semibold mb-4">PostProcessing</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {links.map(({ to, text }) => (
           <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
