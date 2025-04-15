@@ -42,6 +42,7 @@ import Transforms from "./pages/Transforms"
 import HelperGizmos from "./pages/HelperGizmos.tsx"
 import LevaGui from "./pages/LevaGui.tsx"
 import Fog from "./pages/Fog"
+import PhysicsExample1 from "./pages/physics/Example1.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -74,6 +75,8 @@ createRoot(document.getElementById("root")!).render(
         <Route path="mesh-physical-material" element={<MeshPhysicalMaterial />} />
         <Route path="mesh-standard-material" element={<MeshStandardMaterial />} />
         <Route path="mesh-toon-material" element={<MeshToonMaterial />} />
+
+        <Route path="physics-example-1" element={<PhysicsExample1 />} />
 
         <Route path="textures-1" element={<Textures1 />} />
         <Route path="textures-2" element={<Textures2 />} />

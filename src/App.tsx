@@ -8,6 +8,7 @@ export default function App() {
         <Cameras />
         <Lights />
         <Materials />
+        <Physics />
         <Textures />
         <Other />
       </nav>
@@ -89,6 +90,22 @@ function Materials() {
       >
         <h2 className="text-xl font-semibold mb-4">Materials</h2>
       </Link>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {links.map(({ to, text }) => (
+          <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
+            {text}
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function Physics() {
+  const links = [{ to: "physics-example-1", text: "Example 1" }]
+  return (
+    <section className="border-t border-gray-800 pt-6">
+      <h2 className="text-xl font-semibold mb-4">Physics</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {links.map(({ to, text }) => (
           <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
