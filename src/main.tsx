@@ -35,6 +35,7 @@ import PhysicsExample3 from "./pages/physics/Example3.tsx"
 
 import Autofocus from "./pages/postprocessing/Autofocus.tsx"
 import Bloom from "./pages/postprocessing/Bloom.tsx"
+import BrightnessContrast from "./pages/postprocessing/BrightnessContrast.tsx"
 
 import Textures1 from "./pages/textures/Textures1.tsx"
 import Textures2 from "./pages/textures/Textures2.tsx"
@@ -88,6 +89,7 @@ createRoot(document.getElementById("root")!).render(
 
         <Route path="autofocus" element={<Autofocus />} />
         <Route path="bloom" element={<Bloom />} />
+        <Route path="brightness-contrast" element={<BrightnessContrast />} />
 
         <Route path="textures-1" element={<Textures1 />} />
         <Route path="textures-2" element={<Textures2 />} />
@@ -232,6 +234,7 @@ function Postprocessing() {
   const links = [
     { to: "autofocus", text: "Autofocus" },
     { to: "bloom", text: "Bloom" },
+    { to: "brightness-contrast", text: "Brightness Contrast" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
