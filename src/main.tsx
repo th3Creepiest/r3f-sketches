@@ -45,6 +45,7 @@ import Glitch from "./pages/postprocessing/Glitch.tsx"
 import Grid from "./pages/postprocessing/Grid.tsx"
 import HueSaturation from "./pages/postprocessing/HueSaturation.tsx"
 import Noise from "./pages/postprocessing/Noise.tsx"
+import Pixelation from "./pages/postprocessing/Pixelation.tsx"
 
 import Textures1 from "./pages/textures/Textures1.tsx"
 import Textures2 from "./pages/textures/Textures2.tsx"
@@ -108,6 +109,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="grid" element={<Grid />} />
         <Route path="hue-saturation" element={<HueSaturation />} />
         <Route path="noise" element={<Noise />} />
+        <Route path="pixelation" element={<Pixelation />} />
 
         <Route path="textures-1" element={<Textures1 />} />
         <Route path="textures-2" element={<Textures2 />} />
@@ -262,6 +264,7 @@ function Postprocessing() {
     { to: "grid", text: "Grid" },
     { to: "hue-saturation", text: "Hue Saturation" },
     { to: "noise", text: "Noise" },
+    { to: "pixelation", text: "Pixelation" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
