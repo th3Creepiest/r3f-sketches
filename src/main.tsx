@@ -46,6 +46,7 @@ import Grid from "./pages/postprocessing/Grid.tsx"
 import HueSaturation from "./pages/postprocessing/HueSaturation.tsx"
 import Noise from "./pages/postprocessing/Noise.tsx"
 import Pixelation from "./pages/postprocessing/Pixelation.tsx"
+import Ramp from "./pages/postprocessing/Ramp.tsx"
 
 import Textures1 from "./pages/textures/Textures1.tsx"
 import Textures2 from "./pages/textures/Textures2.tsx"
@@ -110,6 +111,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="hue-saturation" element={<HueSaturation />} />
         <Route path="noise" element={<Noise />} />
         <Route path="pixelation" element={<Pixelation />} />
+        <Route path="ramp" element={<Ramp />} />
 
         <Route path="textures-1" element={<Textures1 />} />
         <Route path="textures-2" element={<Textures2 />} />
@@ -265,6 +267,7 @@ function Postprocessing() {
     { to: "hue-saturation", text: "Hue Saturation" },
     { to: "noise", text: "Noise" },
     { to: "pixelation", text: "Pixelation" },
+    { to: "ramp", text: "Ramp" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
