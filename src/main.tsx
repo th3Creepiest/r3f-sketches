@@ -49,6 +49,7 @@ import Pixelation from "./pages/postprocessing/Pixelation.tsx"
 import Ramp from "./pages/postprocessing/Ramp.tsx"
 import Scanline from "./pages/postprocessing/Scanline.tsx"
 import Sepia from "./pages/postprocessing/Sepia.tsx"
+import Vignette from "./pages/postprocessing/Vignette.tsx"
 
 import Textures1 from "./pages/textures/Textures1.tsx"
 import Textures2 from "./pages/textures/Textures2.tsx"
@@ -116,6 +117,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="ramp" element={<Ramp />} />
         <Route path="scanline" element={<Scanline />} />
         <Route path="sepia" element={<Sepia />} />
+        <Route path="vignette" element={<Vignette />} />
 
         <Route path="textures-1" element={<Textures1 />} />
         <Route path="textures-2" element={<Textures2 />} />
@@ -274,6 +276,7 @@ function Postprocessing() {
     { to: "ramp", text: "Ramp" },
     { to: "scanline", text: "Scanline" },
     { to: "sepia", text: "Sepia" },
+    { to: "vignette", text: "Vignette" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
