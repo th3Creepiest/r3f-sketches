@@ -43,6 +43,7 @@ import DepthOfField from "./pages/postprocessing/DepthOfField.tsx"
 import DotScreen from "./pages/postprocessing/DotScreen.tsx"
 import Glitch from "./pages/postprocessing/Glitch.tsx"
 import Grid from "./pages/postprocessing/Grid.tsx"
+import HueSaturation from "./pages/postprocessing/HueSaturation.tsx"
 
 import Textures1 from "./pages/textures/Textures1.tsx"
 import Textures2 from "./pages/textures/Textures2.tsx"
@@ -104,6 +105,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="dot-screen" element={<DotScreen />} />
         <Route path="glitch" element={<Glitch />} />
         <Route path="grid" element={<Grid />} />
+        <Route path="hue-saturation" element={<HueSaturation />} />
 
         <Route path="textures-1" element={<Textures1 />} />
         <Route path="textures-2" element={<Textures2 />} />
@@ -256,6 +258,7 @@ function Postprocessing() {
     { to: "dot-screen", text: "Dot Screen" },
     { to: "glitch", text: "Glitch" },
     { to: "grid", text: "Grid" },
+    { to: "hue-saturation", text: "Hue Saturation" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
