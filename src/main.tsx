@@ -34,7 +34,8 @@ import PhysicsExample2 from "./pages/physics/Example2.tsx"
 import PhysicsExample3 from "./pages/physics/Example3.tsx"
 
 import Autofocus from "./pages/postprocessing/Autofocus.tsx"
-import Bloom from "./pages/postprocessing/Bloom.tsx"
+import Bloom1 from "./pages/postprocessing/Bloom1.tsx"
+import Bloom2 from "./pages/postprocessing/Bloom2.tsx"
 import BrightnessContrast from "./pages/postprocessing/BrightnessContrast.tsx"
 import ChromaticAberration from "./pages/postprocessing/ChromaticAberration.tsx"
 
@@ -89,7 +90,8 @@ createRoot(document.getElementById("root")!).render(
         <Route path="physics-example-3" element={<PhysicsExample3 />} />
 
         <Route path="autofocus" element={<Autofocus />} />
-        <Route path="bloom" element={<Bloom />} />
+        <Route path="bloom-1" element={<Bloom1 />} />
+        <Route path="bloom-2" element={<Bloom2 />} />
         <Route path="brightness-contrast" element={<BrightnessContrast />} />
         <Route path="chromatic-aberration" element={<ChromaticAberration />} />
 
@@ -235,7 +237,8 @@ function Physics() {
 function Postprocessing() {
   const links = [
     { to: "autofocus", text: "Autofocus" },
-    { to: "bloom", text: "Bloom" },
+    { to: "bloom-1", text: "Bloom 1" },
+    { to: "bloom-2", text: "Bloom 2" },
     { to: "brightness-contrast", text: "Brightness Contrast" },
     { to: "chromatic-aberration", text: "Chromatic Aberration" },
   ]
