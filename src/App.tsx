@@ -145,6 +145,7 @@ function Other() {
     { to: "example-1", text: "Example 1" },
     { to: "example-2", text: "Example 2" },
     { to: "example-3", text: "Example 3" },
+    { to: "example-4", text: "Example 4" },
     { to: "primitives", text: "Primitives" },
     { to: "transforms", text: "Transforms" },
     { to: "helper-gizmos", text: "Helper Gizmos" },
