@@ -1,11 +1,9 @@
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
-import { BrowserRouter, Routes, Route } from "react-router"
+import { BrowserRouter, Routes, Route, Link } from "react-router"
 import "./index.css"
 
-import App from "./App.tsx"
-
-import Cameras from "./pages/cameras/Cameras.tsx"
+import CamerasPage from "./pages/cameras/Cameras.tsx"
 import PerspectiveCamera from "./pages/cameras/PerspectiveCamera.tsx"
 import PerspectiveCameraHelper from "./pages/cameras/PerspectiveCameraHelper.tsx"
 import OrthographicCamera from "./pages/cameras/OrthographicCamera.tsx"
@@ -13,7 +11,7 @@ import OrthographicCameraHelper from "./pages/cameras/OrthographicCameraHelper.t
 import OrbitControls from "./pages/cameras/OrbitControls.tsx"
 import FirstPersonControls from "./pages/cameras/FirstPersonControls.tsx"
 
-import Lights from "./pages/lights/Lights.tsx"
+import LightsPage from "./pages/lights/Lights.tsx"
 import AmbientLight from "./pages/lights/AmbientLight.tsx"
 import DirectionalLight from "./pages/lights/DirectionalLight.tsx"
 import HemisphereLight from "./pages/lights/HemisphereLight.tsx"
@@ -21,7 +19,7 @@ import PointLight from "./pages/lights/PointLight.tsx"
 import RectAreaLight from "./pages/lights/RectAreaLight.tsx"
 import SpotLight from "./pages/lights/SpotLight.tsx"
 
-import Materials from "./pages/materials/Materials.tsx"
+import MaterialsPage from "./pages/materials/Materials.tsx"
 import MeshBasicMaterial from "./pages/materials/MeshBasicMaterial.tsx"
 import MeshDepthMaterial from "./pages/materials/MeshDepthMaterial.tsx"
 import MeshLambertMaterial from "./pages/materials/MeshLambertMaterial.tsx"
@@ -54,7 +52,7 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/" element={<App />} />
 
-        <Route path="cameras" element={<Cameras />} />
+        <Route path="cameras" element={<CamerasPage />} />
         <Route path="perspective-camera" element={<PerspectiveCamera />} />
         <Route path="perspective-camera-helper" element={<PerspectiveCameraHelper />} />
         <Route path="orthographic-camera" element={<OrthographicCamera />} />
@@ -62,7 +60,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="orbit-controls" element={<OrbitControls />} />
         <Route path="first-person-controls" element={<FirstPersonControls />} />
 
-        <Route path="lights" element={<Lights />} />
+        <Route path="lights" element={<LightsPage />} />
         <Route path="ambient-light" element={<AmbientLight />} />
         <Route path="directional-light" element={<DirectionalLight />} />
         <Route path="hemisphere-light" element={<HemisphereLight />} />
@@ -70,7 +68,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="rect-area-light" element={<RectAreaLight />} />
         <Route path="spot-light" element={<SpotLight />} />
 
-        <Route path="materials" element={<Materials />} />
+        <Route path="materials" element={<MaterialsPage />} />
         <Route path="mesh-basic-material" element={<MeshBasicMaterial />} />
         <Route path="mesh-depth-material" element={<MeshDepthMaterial />} />
         <Route path="mesh-lambert-material" element={<MeshLambertMaterial />} />
@@ -100,3 +98,169 @@ createRoot(document.getElementById("root")!).render(
     </BrowserRouter>
   </StrictMode>
 )
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-black text-white p-4">
+      <h1 className="text-3xl font-bold text-center text-white mb-4">Three.js</h1>
+      <nav className="max-w-2xl mx-auto space-y-6">
+        <Cameras />
+        <Lights />
+        <Materials />
+        <Physics />
+        <Textures />
+        <Other />
+      </nav>
+    </div>
+  )
+}
+
+function Cameras() {
+  const links = [
+    { to: "perspective-camera", text: "Perspective Camera" },
+    { to: "perspective-camera-helper", text: "Perspective Camera Helper" },
+    { to: "orthographic-camera", text: "Orthographic Camera" },
+    { to: "orthographic-camera-helper", text: "Orthographic Camera Helper" },
+    { to: "orbit-controls", text: "Orbit Controls" },
+    { to: "first-person-controls", text: "First Person Controls" },
+  ]
+  return (
+    <section className="border-t border-gray-800 pt-6">
+      <Link
+        key={"cameras"}
+        to={"cameras"}
+        className="hover:text-red-400 transition-colors"
+      >
+        <h2 className="text-xl font-semibold mb-4">Cameras</h2>
+      </Link>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {links.map(({ to, text }) => (
+          <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
+            {text}
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function Lights() {
+  const links = [
+    { to: "ambient-light", text: "Ambient Light" },
+    { to: "directional-light", text: "Directional Light" },
+    { to: "hemisphere-light", text: "Hemisphere Light" },
+    { to: "point-light", text: "Point Light" },
+    { to: "rect-area-light", text: "Rect Area Light" },
+    { to: "spot-light", text: "Spot Light" },
+  ]
+  return (
+    <section className="border-t border-gray-800 pt-6">
+      <Link key={"lights"} to={"lights"} className="hover:text-red-400 transition-colors">
+        <h2 className="text-xl font-semibold mb-4">Lights</h2>
+      </Link>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {links.map(({ to, text }) => (
+          <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
+            {text}
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function Materials() {
+  const links = [
+    { to: "mesh-basic-material", text: "Mesh Basic Material" },
+    { to: "mesh-depth-material", text: "Mesh Depth Material" },
+    { to: "mesh-lambert-material", text: "Mesh Lambert Material" },
+    { to: "mesh-normal-material", text: "Mesh Normal Material" },
+    { to: "mesh-phong-material", text: "Mesh Phong Material" },
+    { to: "mesh-physical-material", text: "Mesh Physical Material" },
+    { to: "mesh-standard-material", text: "Mesh Standard Material" },
+    { to: "mesh-toon-material", text: "Mesh Toon Material" },
+  ]
+  return (
+    <section className="border-t border-gray-800 pt-6">
+      <Link
+        key={"materials"}
+        to={"materials"}
+        className="hover:text-red-400 transition-colors"
+      >
+        <h2 className="text-xl font-semibold mb-4">Materials</h2>
+      </Link>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {links.map(({ to, text }) => (
+          <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
+            {text}
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function Physics() {
+  const links = [
+    { to: "physics-example-1", text: "Example 1" },
+    { to: "physics-example-2", text: "Example 2" },
+    { to: "physics-example-3", text: "Example 3" },
+  ]
+  return (
+    <section className="border-t border-gray-800 pt-6">
+      <h2 className="text-xl font-semibold mb-4">Physics</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {links.map(({ to, text }) => (
+          <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
+            {text}
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function Textures() {
+  const links = [
+    { to: "textures-1", text: "Textures 1" },
+    { to: "textures-2", text: "Textures 2" },
+  ]
+  return (
+    <section className="border-t border-gray-800 pt-6">
+      <h2 className="text-xl font-semibold mb-4">Textures</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {links.map(({ to, text }) => (
+          <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
+            {text}
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function Other() {
+  const links = [
+    { to: "example-1", text: "Example 1" },
+    { to: "example-2", text: "Example 2" },
+    { to: "example-3", text: "Example 3" },
+    { to: "example-4", text: "Example 4" },
+    { to: "primitives", text: "Primitives" },
+    { to: "transforms", text: "Transforms" },
+    { to: "helper-gizmos", text: "Helper Gizmos" },
+    { to: "leva-gui", text: "Leva GUI" },
+    { to: "fog", text: "Fog" },
+  ]
+  return (
+    <section className="border-t border-gray-800 pt-6">
+      <h2 className="text-xl font-semibold mb-4">Other</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {links.map(({ to, text }) => (
+          <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
+            {text}
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
