@@ -102,7 +102,10 @@ function Materials() {
 }
 
 function Physics() {
-  const links = [{ to: "physics-example-1", text: "Example 1" }]
+  const links = [
+    { to: "physics-example-1", text: "Example 1" },
+    { to: "physics-example-2", text: "Example 2" },
+  ]
   return (
     <section className="border-t border-gray-800 pt-6">
       <h2 className="text-xl font-semibold mb-4">Physics</h2>
