@@ -105,6 +105,7 @@ function Physics() {
   const links = [
     { to: "physics-example-1", text: "Example 1" },
     { to: "physics-example-2", text: "Example 2" },
+    { to: "physics-example-3", text: "Example 3" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">

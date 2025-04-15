@@ -33,6 +33,7 @@ import MeshToonMaterial from "./pages/materials/MeshToonMaterial.tsx"
 
 import PhysicsExample1 from "./pages/physics/Example1.tsx"
 import PhysicsExample2 from "./pages/physics/Example2.tsx"
+import PhysicsExample3 from "./pages/physics/Example3.tsx"
 
 import Textures1 from "./pages/textures/Textures1.tsx"
 import Textures2 from "./pages/textures/Textures2.tsx"
@@ -80,6 +81,7 @@ createRoot(document.getElementById("root")!).render(
 
         <Route path="physics-example-1" element={<PhysicsExample1 />} />
         <Route path="physics-example-2" element={<PhysicsExample2 />} />
+        <Route path="physics-example-3" element={<PhysicsExample3 />} />
 
         <Route path="textures-1" element={<Textures1 />} />
         <Route path="textures-2" element={<Textures2 />} />
