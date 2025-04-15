@@ -4,8 +4,9 @@ import { BlendFunction } from "postprocessing"
 import { useControls } from "leva"
 
 export default function Example() {
-  const { color, offsetX, offsetY, blendFunction } = useControls({
+  const { color, opacity, offsetX, offsetY, blendFunction } = useControls({
     color: { value: "orange" },
+    opacity: { min: 0, max: 1, value: 1 },
     offsetX: { min: -1, max: 1, value: 0.02, step: 0.001 },
     offsetY: { min: -1, max: 1, value: 0.002, step: 0.0001 },
     blendFunction: {
@@ -57,8 +58,9 @@ export default function Example() {
         </mesh>
         <EffectComposer>
           <ChromaticAberration
-            blendFunction={blendFunction}
+            opacity={opacity}
             offset={[offsetX, offsetY]}
+            blendFunction={blendFunction}
           />
         </EffectComposer>
       </Canvas>
