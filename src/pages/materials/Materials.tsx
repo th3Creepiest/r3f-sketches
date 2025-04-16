@@ -1,3 +1,4 @@
+import { BufferGeometry, BufferAttribute } from "three"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls } from "@react-three/drei"
 import { Link } from "react-router"
@@ -15,6 +16,17 @@ function MaterialCard({ title, children }: MaterialCardProps) {
     </div>
   )
 }
+
+const pointsGeometry = (() => {
+  const geometry = new BufferGeometry()
+  const count = 500
+  const positions = new Float32Array(count * 3)
+  for (let i = 0; i < count * 3; i++) {
+    positions[i] = (Math.random() - 0.5) * 10
+  }
+  geometry.setAttribute("position", new BufferAttribute(positions, 3))
+  return geometry
+})()
 
 export default function Example() {
   return (
@@ -125,6 +137,15 @@ export default function Example() {
             <OrbitControls autoRotate enableZoom={false} />
           </Canvas>
         </MaterialCard>
+
+        <MaterialCard title="Points Material">
+          <Canvas camera={{ position: [0, 0, 2.5] }}>
+            <points geometry={pointsGeometry}>
+              <pointsMaterial color="hotpink" size={0.1} />
+            </points>
+            <OrbitControls autoRotate autoRotateSpeed={1} enableZoom={false} />
+          </Canvas>
+        </MaterialCard>
       </div>
 
       <div className="text-center text-neutral-400 text-sm italic mb-8">
@@ -179,6 +200,12 @@ export default function Example() {
           className="px-4 py-2 bg-pink-600 hover:bg-pink-500 text-white font-medium rounded-md shadow-md transition-colors duration-300"
         >
           Normal Material
+        </Link>
+        <Link
+          to="/points-material"
+          className="px-4 py-2 bg-pink-600 hover:bg-pink-500 text-white font-medium rounded-md shadow-md transition-colors duration-300"
+        >
+          Points Material
         </Link>
       </section>
     </div>

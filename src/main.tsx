@@ -28,6 +28,7 @@ import MeshPhongMaterial from "./pages/materials/MeshPhongMaterial.tsx"
 import MeshPhysicalMaterial from "./pages/materials/MeshPhysicalMaterial.tsx"
 import MeshStandardMaterial from "./pages/materials/MeshStandardMaterial.tsx"
 import MeshToonMaterial from "./pages/materials/MeshToonMaterial.tsx"
+import PointsMaterial from "./pages/materials/PointsMaterial.tsx"
 
 import PhysicsExample1 from "./pages/physics/Example1.tsx"
 import PhysicsExample2 from "./pages/physics/Example2.tsx"
@@ -97,6 +98,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="mesh-physical-material" element={<MeshPhysicalMaterial />} />
         <Route path="mesh-standard-material" element={<MeshStandardMaterial />} />
         <Route path="mesh-toon-material" element={<MeshToonMaterial />} />
+        <Route path="points-material" element={<PointsMaterial />} />
 
         <Route path="physics-example-1" element={<PhysicsExample1 />} />
         <Route path="physics-example-2" element={<PhysicsExample2 />} />
@@ -220,6 +222,7 @@ function Materials() {
     { to: "mesh-physical-material", text: "Mesh Physical Material" },
     { to: "mesh-standard-material", text: "Mesh Standard Material" },
     { to: "mesh-toon-material", text: "Mesh Toon Material" },
+    { to: "points-material", text: "Points Material" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
