@@ -11,6 +11,9 @@ import OrthographicCameraHelper from "./pages/cameras/OrthographicCameraHelper.t
 import OrbitControls from "./pages/cameras/OrbitControls.tsx"
 import FirstPersonControls from "./pages/cameras/FirstPersonControls.tsx"
 
+import InteractionsExample1 from "./pages/interactions/Example1.tsx"
+import InteractionsExample2 from "./pages/interactions/Example2.tsx"
+
 import LightsPage from "./pages/lights/Lights.tsx"
 import AmbientLight from "./pages/lights/AmbientLight.tsx"
 import DirectionalLight from "./pages/lights/DirectionalLight.tsx"
@@ -55,7 +58,6 @@ import Vignette from "./pages/postprocessing/Vignette.tsx"
 import Textures1 from "./pages/textures/Textures1.tsx"
 import Textures2 from "./pages/textures/Textures2.tsx"
 
-import Example1 from "./pages/Example1"
 import Example2 from "./pages/Example2"
 import Example3 from "./pages/Example3"
 import Example4 from "./pages/Example4"
@@ -83,6 +85,9 @@ createRoot(document.getElementById("root")!).render(
         <Route path="orthographic-camera-helper" element={<OrthographicCameraHelper />} />
         <Route path="orbit-controls" element={<OrbitControls />} />
         <Route path="first-person-controls" element={<FirstPersonControls />} />
+
+        <Route path="interactions-example-1" element={<InteractionsExample1 />} />
+        <Route path="interactions-example-2" element={<InteractionsExample2 />} />
 
         <Route path="lights" element={<LightsPage />} />
         <Route path="ambient-light" element={<AmbientLight />} />
@@ -128,7 +133,6 @@ createRoot(document.getElementById("root")!).render(
         <Route path="textures-1" element={<Textures1 />} />
         <Route path="textures-2" element={<Textures2 />} />
 
-        <Route path="example-1" element={<Example1 />} />
         <Route path="example-2" element={<Example2 />} />
         <Route path="example-3" element={<Example3 />} />
         <Route path="example-4" element={<Example4 />} />
@@ -153,6 +157,7 @@ export default function App() {
       <h1 className="text-3xl font-bold text-center text-white mb-4">Three.js</h1>
       <nav className="max-w-2xl mx-auto space-y-6">
         <Cameras />
+        <Interactions />
         <Lights />
         <Materials />
         <Physics />
@@ -182,6 +187,25 @@ function Cameras() {
       >
         <h2 className="text-xl font-semibold mb-4">Cameras</h2>
       </Link>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {links.map(({ to, text }) => (
+          <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
+            {text}
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function Interactions() {
+  const links = [
+    { to: "interactions-example-1", text: "Example 1" },
+    { to: "interactions-example-2", text: "Example 2" },
+  ]
+  return (
+    <section className="border-t border-gray-800 pt-6">
+      <h2 className="text-xl font-semibold mb-4">Interactions</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {links.map(({ to, text }) => (
           <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
@@ -324,7 +348,6 @@ function Textures() {
 
 function Other() {
   const links = [
-    { to: "example-1", text: "Example 1" },
     { to: "example-2", text: "Example 2" },
     { to: "example-3", text: "Example 3" },
     { to: "example-4", text: "Example 4" },
