@@ -58,6 +58,7 @@ import Example1 from "./pages/Example1"
 import Example2 from "./pages/Example2"
 import Example3 from "./pages/Example3"
 import Example4 from "./pages/Example4"
+import Example5 from "./pages/Example5"
 import Primitives from "./pages/Primitives"
 import Transforms from "./pages/Transforms"
 import HelperGizmos from "./pages/HelperGizmos.tsx"
@@ -126,6 +127,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="example-2" element={<Example2 />} />
         <Route path="example-3" element={<Example3 />} />
         <Route path="example-4" element={<Example4 />} />
+        <Route path="example-5" element={<Example5 />} />
         <Route path="primitives" element={<Primitives />} />
         <Route path="transforms" element={<Transforms />} />
         <Route path="helper-gizmos" element={<HelperGizmos />} />
@@ -317,6 +319,7 @@ function Other() {
     { to: "example-2", text: "Example 2" },
     { to: "example-3", text: "Example 3" },
     { to: "example-4", text: "Example 4" },
+    { to: "example-5", text: "Example 5" },
     { to: "primitives", text: "Primitives" },
     { to: "transforms", text: "Transforms" },
     { to: "helper-gizmos", text: "Helper Gizmos" },
