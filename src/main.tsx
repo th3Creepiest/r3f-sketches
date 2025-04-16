@@ -68,6 +68,7 @@ import Fog from "./pages/Fog"
 import Keen from "./pages/Keen.tsx"
 import Suzanne from "./pages/Suzanne.tsx"
 import Scene from "./pages/Scene"
+import Cubes from "./pages/Cubes.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -140,6 +141,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="keen" element={<Keen />} />
         <Route path="suzanne" element={<Suzanne />} />
         <Route path="scene" element={<Scene />} />
+        <Route path="cubes" element={<Cubes />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
@@ -335,6 +337,7 @@ function Other() {
     { to: "keen", text: "Keen" },
     { to: "Suzanne", text: "Suzanne" },
     { to: "scene", text: "Scene" },
+    { to: "cubes", text: "Cubes" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
