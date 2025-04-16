@@ -66,6 +66,7 @@ import HelperGizmos from "./pages/HelperGizmos.tsx"
 import LevaGui from "./pages/LevaGui.tsx"
 import Fog from "./pages/Fog"
 import Keen from "./pages/Keen.tsx"
+import Suzanne from "./pages/Suzanne.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -136,6 +137,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="leva-gui" element={<LevaGui />} />
         <Route path="fog" element={<Fog />} />
         <Route path="keen" element={<Keen />} />
+        <Route path="suzanne" element={<Suzanne />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
@@ -329,6 +331,7 @@ function Other() {
     { to: "leva-gui", text: "Leva GUI" },
     { to: "fog", text: "Fog" },
     { to: "keen", text: "Keen" },
+    { to: "Suzanne", text: "Suzanne" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
