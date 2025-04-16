@@ -11,7 +11,7 @@ import OrthographicCameraHelper from "./pages/cameras/OrthographicCameraHelper.t
 import OrbitControls from "./pages/cameras/OrbitControls.tsx"
 import FirstPersonControls from "./pages/cameras/FirstPersonControls.tsx"
 
-import InteractionsExample1 from "./pages/interactions/Example1.tsx"
+import MouseEvents from "./pages/interactions/MouseEvents.tsx"
 import InteractionsExample2 from "./pages/interactions/Example2.tsx"
 
 import LightsPage from "./pages/lights/Lights.tsx"
@@ -86,7 +86,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="orbit-controls" element={<OrbitControls />} />
         <Route path="first-person-controls" element={<FirstPersonControls />} />
 
-        <Route path="interactions-example-1" element={<InteractionsExample1 />} />
+        <Route path="mouse-events" element={<MouseEvents />} />
         <Route path="interactions-example-2" element={<InteractionsExample2 />} />
 
         <Route path="lights" element={<LightsPage />} />
@@ -200,7 +200,7 @@ function Cameras() {
 
 function Interactions() {
   const links = [
-    { to: "interactions-example-1", text: "Example 1" },
+    { to: "mouse-events", text: "Mouse Events" },
     { to: "interactions-example-2", text: "Example 2" },
   ]
   return (
