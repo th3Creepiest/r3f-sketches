@@ -101,6 +101,30 @@ export default function Example() {
             <OrbitControls enableZoom={false} />
           </Canvas>
         </MaterialCard>
+
+        <MaterialCard title="Depth Material">
+          <Canvas camera={{ position: [0, 0, 2.5] }}>
+            <ambientLight intensity={0.5} />
+            <pointLight position={[2, 3, 4]} intensity={5} />
+            <mesh>
+              <torusKnotGeometry args={[0.7, 0.2, 64, 100]} />
+              <meshDepthMaterial />
+            </mesh>
+            <OrbitControls autoRotate enableZoom={false} />
+          </Canvas>
+        </MaterialCard>
+
+        <MaterialCard title="Normal Material">
+          <Canvas camera={{ position: [0, 0, 2.5] }}>
+            <ambientLight intensity={0.5} />
+            <pointLight position={[2, 3, 4]} intensity={5} />
+            <mesh>
+              <torusKnotGeometry args={[0.7, 0.2, 64, 100]} />
+              <meshNormalMaterial />
+            </mesh>
+            <OrbitControls autoRotate enableZoom={false} />
+          </Canvas>
+        </MaterialCard>
       </div>
 
       <div className="text-center text-neutral-400 text-sm italic mb-8">
