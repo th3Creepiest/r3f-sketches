@@ -67,6 +67,7 @@ import LevaGui from "./pages/LevaGui.tsx"
 import Fog from "./pages/Fog"
 import Keen from "./pages/Keen.tsx"
 import Suzanne from "./pages/Suzanne.tsx"
+import Scene from "./pages/Scene"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -138,6 +139,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="fog" element={<Fog />} />
         <Route path="keen" element={<Keen />} />
         <Route path="suzanne" element={<Suzanne />} />
+        <Route path="scene" element={<Scene />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
@@ -332,6 +334,7 @@ function Other() {
     { to: "fog", text: "Fog" },
     { to: "keen", text: "Keen" },
     { to: "Suzanne", text: "Suzanne" },
+    { to: "scene", text: "Scene" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
