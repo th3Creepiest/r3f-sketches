@@ -11,8 +11,8 @@ import OrthographicCameraHelper from "./pages/cameras/OrthographicCameraHelper.t
 import OrbitControls from "./pages/cameras/OrbitControls.tsx"
 import FirstPersonControls from "./pages/cameras/FirstPersonControls.tsx"
 
+import InteractionsPage from "./pages/interactions/Interactions.tsx"
 import MouseEvents from "./pages/interactions/MouseEvents.tsx"
-import InteractionsExample2 from "./pages/interactions/Example2.tsx"
 
 import LightsPage from "./pages/lights/Lights.tsx"
 import AmbientLight from "./pages/lights/AmbientLight.tsx"
@@ -86,8 +86,8 @@ createRoot(document.getElementById("root")!).render(
         <Route path="orbit-controls" element={<OrbitControls />} />
         <Route path="first-person-controls" element={<FirstPersonControls />} />
 
+        <Route path="interactions" element={<InteractionsPage />} />
         <Route path="mouse-events" element={<MouseEvents />} />
-        <Route path="interactions-example-2" element={<InteractionsExample2 />} />
 
         <Route path="lights" element={<LightsPage />} />
         <Route path="ambient-light" element={<AmbientLight />} />
@@ -199,13 +199,16 @@ function Cameras() {
 }
 
 function Interactions() {
-  const links = [
-    { to: "mouse-events", text: "Mouse Events" },
-    { to: "interactions-example-2", text: "Example 2" },
-  ]
+  const links = [{ to: "mouse-events", text: "Mouse Events" }]
   return (
     <section className="border-t border-gray-800 pt-6">
-      <h2 className="text-xl font-semibold mb-4">Interactions</h2>
+      <Link
+        key={"interactions"}
+        to={"interactions"}
+        className="hover:text-red-400 transition-colors"
+      >
+        <h2 className="text-xl font-semibold mb-4">Interactions</h2>
+      </Link>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {links.map(({ to, text }) => (
           <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
