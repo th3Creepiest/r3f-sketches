@@ -39,7 +39,7 @@ export default function Example() {
           onPointerMove={() => addEvent("move")}
           onPointerMissed={() => addEvent("missed")}
           // onUpdate is for prop changes, not typically user interaction
-          onUpdate={() => addEvent("props have been updated")}
+          // onUpdate={() => addEvent("props have been updated")}
         >
           <boxGeometry args={[2, 2, 2]} />
           <meshStandardMaterial color="royalblue" />
