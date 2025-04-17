@@ -57,13 +57,15 @@ import Scanline from "./pages/postprocessing/Scanline.tsx"
 import Sepia from "./pages/postprocessing/Sepia.tsx"
 import Vignette from "./pages/postprocessing/Vignette.tsx"
 
+import DreiBox from "./pages/shapes/DreiBox.tsx"
+import Primitives from "./pages/shapes/Primitives.tsx"
+
 import Textures1 from "./pages/textures/Textures1.tsx"
 import Textures2 from "./pages/textures/Textures2.tsx"
 
 import Example3 from "./pages/Example3"
 import Example4 from "./pages/Example4"
 import Example5 from "./pages/Example5"
-import Primitives from "./pages/Primitives"
 import Transforms from "./pages/Transforms"
 import HelperGizmos from "./pages/HelperGizmos.tsx"
 import LevaGui from "./pages/LevaGui.tsx"
@@ -133,13 +135,15 @@ createRoot(document.getElementById("root")!).render(
         <Route path="sepia" element={<Sepia />} />
         <Route path="vignette" element={<Vignette />} />
 
+        <Route path="drei-box" element={<DreiBox />} />
+        <Route path="primitives" element={<Primitives />} />
+
         <Route path="textures-1" element={<Textures1 />} />
         <Route path="textures-2" element={<Textures2 />} />
 
         <Route path="example-3" element={<Example3 />} />
         <Route path="example-4" element={<Example4 />} />
         <Route path="example-5" element={<Example5 />} />
-        <Route path="primitives" element={<Primitives />} />
         <Route path="transforms" element={<Transforms />} />
         <Route path="helper-gizmos" element={<HelperGizmos />} />
         <Route path="leva-gui" element={<LevaGui />} />
@@ -360,7 +364,6 @@ function Other() {
     { to: "example-3", text: "Example 3" },
     { to: "example-4", text: "Example 4" },
     { to: "example-5", text: "Example 5" },
-    { to: "primitives", text: "Primitives" },
     { to: "transforms", text: "Transforms" },
     { to: "helper-gizmos", text: "Helper Gizmos" },
     { to: "leva-gui", text: "Leva GUI" },
@@ -369,6 +372,8 @@ function Other() {
     { to: "Suzanne", text: "Suzanne" },
     { to: "scene", text: "Scene" },
     { to: "cubes", text: "Cubes" },
+    { to: "drei-box", text: "Drei Box" },
+    { to: "primitives", text: "Primitives" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
