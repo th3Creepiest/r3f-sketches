@@ -6,8 +6,7 @@ import { Box, Sphere, Torus, OrbitControls } from "@react-three/drei"
 export default function Example() {
   return (
     <div className="h-screen">
-      <Canvas shadows camera={{ position: [10, 10, 10], fov: 30 }}>
-        <color attach="background" args={["#ececec"]} />
+      <Canvas shadows camera={{ position: [10, 10, 10], fov: 60 }}>
         <Suspense>
           <Physics debug>
             <Experience />

@@ -34,10 +34,9 @@ import MeshStandardMaterial from "./pages/materials/MeshStandardMaterial.tsx"
 import MeshToonMaterial from "./pages/materials/MeshToonMaterial.tsx"
 import PointsMaterial from "./pages/materials/PointsMaterial.tsx"
 
-import PhysicsExample1 from "./pages/physics/Example1.tsx"
-import PhysicsExample3 from "./pages/physics/Example3.tsx"
 import Forces from "./pages/physics/Forces.tsx"
 import Gravity from "./pages/physics/Gravity.tsx"
+import RigidBodies from "./pages/physics/RigidBodies.tsx"
 
 import ASCII from "./pages/postprocessing/ASCII.tsx"
 import Autofocus from "./pages/postprocessing/Autofocus.tsx"
@@ -111,10 +110,9 @@ createRoot(document.getElementById("root")!).render(
         <Route path="mesh-toon-material" element={<MeshToonMaterial />} />
         <Route path="points-material" element={<PointsMaterial />} />
 
-        <Route path="physics-example-1" element={<PhysicsExample1 />} />
-        <Route path="physics-example-3" element={<PhysicsExample3 />} />
         <Route path="forces" element={<Forces />} />
         <Route path="gravity" element={<Gravity />} />
+        <Route path="rigid-bodies" element={<RigidBodies />} />
 
         <Route path="ascii" element={<ASCII />} />
         <Route path="autofocus" element={<Autofocus />} />
@@ -286,10 +284,9 @@ function Materials() {
 
 function Physics() {
   const links = [
-    { to: "physics-example-1", text: "Example 1" },
-    { to: "physics-example-3", text: "Example 3" },
     { to: "forces", text: "Forces" },
     { to: "gravity", text: "Gravity" },
+    { to: "rigid-bodies", text: "RigidBodies" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
