@@ -12,6 +12,7 @@ import OrbitControls from "./pages/cameras/OrbitControls.tsx"
 import FirstPersonControls from "./pages/cameras/FirstPersonControls.tsx"
 
 import InteractionsPage from "./pages/interactions/Interactions.tsx"
+import KeyboardEvents from "./pages/interactions/KeyboardEvents.tsx"
 import MouseEvents from "./pages/interactions/MouseEvents.tsx"
 
 import LightsPage from "./pages/lights/Lights.tsx"
@@ -87,6 +88,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="first-person-controls" element={<FirstPersonControls />} />
 
         <Route path="interactions" element={<InteractionsPage />} />
+        <Route path="keyboard-events" element={<KeyboardEvents />} />
         <Route path="mouse-events" element={<MouseEvents />} />
 
         <Route path="lights" element={<LightsPage />} />
@@ -199,7 +201,10 @@ function Cameras() {
 }
 
 function Interactions() {
-  const links = [{ to: "mouse-events", text: "Mouse Events" }]
+  const links = [
+    { to: "keyboard-events", text: "Keyboard Events" },
+    { to: "mouse-events", text: "Mouse Events" },
+  ]
   return (
     <section className="border-t border-gray-800 pt-6">
       <Link
