@@ -59,7 +59,6 @@ import Vignette from "./pages/postprocessing/Vignette.tsx"
 import Textures1 from "./pages/textures/Textures1.tsx"
 import Textures2 from "./pages/textures/Textures2.tsx"
 
-import Example2 from "./pages/Example2"
 import Example3 from "./pages/Example3"
 import Example4 from "./pages/Example4"
 import Example5 from "./pages/Example5"
@@ -135,7 +134,6 @@ createRoot(document.getElementById("root")!).render(
         <Route path="textures-1" element={<Textures1 />} />
         <Route path="textures-2" element={<Textures2 />} />
 
-        <Route path="example-2" element={<Example2 />} />
         <Route path="example-3" element={<Example3 />} />
         <Route path="example-4" element={<Example4 />} />
         <Route path="example-5" element={<Example5 />} />
@@ -354,7 +352,6 @@ function Textures() {
 
 function Other() {
   const links = [
-    { to: "example-2", text: "Example 2" },
     { to: "example-3", text: "Example 3" },
     { to: "example-4", text: "Example 4" },
     { to: "example-5", text: "Example 5" },
