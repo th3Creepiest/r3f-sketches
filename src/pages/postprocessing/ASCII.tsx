@@ -4,7 +4,7 @@ import { EffectComposer, ASCII } from "@react-three/postprocessing"
 import { useControls } from "leva"
 
 export default function Example() {
-  const { bgColor, ...asciiControls } = useControls({
+  const { bgColor, autoRotate, ...asciiControls } = useControls({
     color: { value: "white" },
     bgColor: { value: "black" },
     font: { value: "monospace" },
@@ -12,10 +12,11 @@ export default function Example() {
     fontSize: { min: 0, max: 100, value: 60 },
     cellSize: { min: 0, max: 100, value: 16 },
     invert: { value: false },
+    autoRotate: { value: true },
   })
   return (
     <div className="h-screen">
-      <Canvas camera={{ fov: 50 }}>
+      <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
         <color attach="background" args={[bgColor]} />
         <mesh>
           <boxGeometry />
@@ -24,7 +25,7 @@ export default function Example() {
         <EffectComposer>
           <ASCII {...asciiControls} />
         </EffectComposer>
-        <OrbitControls />
+        <OrbitControls autoRotate={autoRotate} />
       </Canvas>
     </div>
   )
