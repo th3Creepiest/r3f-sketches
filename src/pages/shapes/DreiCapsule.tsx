@@ -23,8 +23,8 @@ export default function Example() {
   } = useControls({
     radius: { value: 0.5, min: -3, max: 3 },
     length: { value: 1, min: -3, max: 3 },
-    capSegments: { value: 3, min: 0, max: 6 },
-    radialSegments: { value: 8, min: 0, max: 16, step: 1 },
+    capSegments: { value: 3, min: 0, max: 12 },
+    radialSegments: { value: 8, min: 0, max: 32, step: 1 },
     positionX: { value: 0, min: -3, max: 3 },
     positionY: { value: 0, min: -3, max: 3 },
     positionZ: { value: 0, min: -3, max: 3 },
