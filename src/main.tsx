@@ -57,6 +57,7 @@ import Scanline from "./pages/postprocessing/Scanline.tsx"
 import Sepia from "./pages/postprocessing/Sepia.tsx"
 import Vignette from "./pages/postprocessing/Vignette.tsx"
 
+import Cubes from "./pages/shapes/Cubes.tsx"
 import DreiBox from "./pages/shapes/DreiBox.tsx"
 import DreiCapsule from "./pages/shapes/DreiCapsule.tsx"
 import DreiRoundedBox from "./pages/shapes/DreiRoundedBox.tsx"
@@ -75,7 +76,6 @@ import Fog from "./pages/Fog"
 import Keen from "./pages/Keen.tsx"
 import Suzanne from "./pages/Suzanne.tsx"
 import Scene from "./pages/Scene"
-import Cubes from "./pages/Cubes.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -137,6 +137,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="sepia" element={<Sepia />} />
         <Route path="vignette" element={<Vignette />} />
 
+        <Route path="cubes" element={<Cubes />} />
         <Route path="drei-box" element={<DreiBox />} />
         <Route path="drei-capsule" element={<DreiCapsule />} />
         <Route path="drei-rounded-box" element={<DreiRoundedBox />} />
@@ -155,7 +156,6 @@ createRoot(document.getElementById("root")!).render(
         <Route path="keen" element={<Keen />} />
         <Route path="suzanne" element={<Suzanne />} />
         <Route path="scene" element={<Scene />} />
-        <Route path="cubes" element={<Cubes />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
@@ -172,6 +172,7 @@ export default function App() {
         <Materials />
         <Physics />
         <Postprocessing />
+        <Shapes />
         <Textures />
         <Other />
       </nav>
@@ -344,6 +345,28 @@ function Postprocessing() {
   )
 }
 
+function Shapes() {
+  const links = [
+    { to: "cubes", text: "Cubes" },
+    { to: "drei-box", text: "Drei Box" },
+    { to: "drei-capsule", text: "Drei Capsule" },
+    { to: "drei-rounded-box", text: "Drei Rounded Box" },
+    { to: "primitives", text: "Primitives" },
+  ]
+  return (
+    <section className="border-t border-gray-800 pt-6">
+      <h2 className="text-xl font-semibold mb-4">Shapes</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {links.map(({ to, text }) => (
+          <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
+            {text}
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 function Textures() {
   const links = [
     { to: "textures-1", text: "Textures 1" },
@@ -375,11 +398,6 @@ function Other() {
     { to: "keen", text: "Keen" },
     { to: "Suzanne", text: "Suzanne" },
     { to: "scene", text: "Scene" },
-    { to: "cubes", text: "Cubes" },
-    { to: "drei-box", text: "Drei Box" },
-    { to: "drei-capsule", text: "Drei Capsule" },
-    { to: "drei-rounded-box", text: "Drei Rounded Box" },
-    { to: "primitives", text: "Primitives" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
