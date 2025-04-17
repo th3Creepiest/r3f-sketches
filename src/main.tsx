@@ -58,6 +58,7 @@ import Sepia from "./pages/postprocessing/Sepia.tsx"
 import Vignette from "./pages/postprocessing/Vignette.tsx"
 
 import DreiBox from "./pages/shapes/DreiBox.tsx"
+import DreiCapsule from "./pages/shapes/DreiCapsule.tsx"
 import DreiRoundedBox from "./pages/shapes/DreiRoundedBox.tsx"
 import Primitives from "./pages/shapes/Primitives.tsx"
 
@@ -137,6 +138,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="vignette" element={<Vignette />} />
 
         <Route path="drei-box" element={<DreiBox />} />
+        <Route path="drei-capsule" element={<DreiCapsule />} />
         <Route path="drei-rounded-box" element={<DreiRoundedBox />} />
         <Route path="primitives" element={<Primitives />} />
 
@@ -374,8 +376,9 @@ function Other() {
     { to: "Suzanne", text: "Suzanne" },
     { to: "scene", text: "Scene" },
     { to: "cubes", text: "Cubes" },
-    { to: "drei-rounded-box", text: "Drei Rounded Box" },
     { to: "drei-box", text: "Drei Box" },
+    { to: "drei-capsule", text: "Drei Capsule" },
+    { to: "drei-rounded-box", text: "Drei Rounded Box" },
     { to: "primitives", text: "Primitives" },
   ]
   return (
