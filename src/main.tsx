@@ -47,6 +47,7 @@ import ChromaticAberration from "./pages/postprocessing/ChromaticAberration.tsx"
 import ColorAverage from "./pages/postprocessing/ColorAverage.tsx"
 import DepthOfField from "./pages/postprocessing/DepthOfField.tsx"
 import DotScreen from "./pages/postprocessing/DotScreen.tsx"
+import Fisheye from "./pages/postprocessing/Fisheye.tsx"
 import Glitch from "./pages/postprocessing/Glitch.tsx"
 import Grid from "./pages/postprocessing/Grid.tsx"
 import HueSaturation from "./pages/postprocessing/HueSaturation.tsx"
@@ -127,6 +128,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="color-average" element={<ColorAverage />} />
         <Route path="depth-of-field" element={<DepthOfField />} />
         <Route path="dot-screen" element={<DotScreen />} />
+        <Route path="fisheye" element={<Fisheye />} />
         <Route path="glitch" element={<Glitch />} />
         <Route path="grid" element={<Grid />} />
         <Route path="hue-saturation" element={<HueSaturation />} />
@@ -321,6 +323,7 @@ function Postprocessing() {
     { to: "color-average", text: "Color Average" },
     { to: "depth-of-field", text: "Depth of Field" },
     { to: "dot-screen", text: "Dot Screen" },
+    { to: "fisheye", text: "Fisheye" },
     { to: "glitch", text: "Glitch" },
     { to: "grid", text: "Grid" },
     { to: "hue-saturation", text: "Hue Saturation" },
