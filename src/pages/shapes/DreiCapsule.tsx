@@ -7,6 +7,7 @@ export default function Example() {
     radius,
     length,
     capSegments,
+    radialSegments,
     positionX,
     positionY,
     positionZ,
@@ -23,6 +24,7 @@ export default function Example() {
     radius: { value: 0.5, min: -3, max: 3 },
     length: { value: 1, min: -3, max: 3 },
     capSegments: { value: 3, min: 0, max: 6 },
+    radialSegments: { value: 8, min: 0, max: 16, step: 1 },
     positionX: { value: 0, min: -3, max: 3 },
     positionY: { value: 0, min: -3, max: 3 },
     positionZ: { value: 0, min: -3, max: 3 },
@@ -39,11 +41,11 @@ export default function Example() {
 
   return (
     <div className="h-screen">
-      <Canvas camera={{ position: [0, 2, 3] }}>
+      <Canvas camera={{ position: [0, 1.5, 5], fov: 50 }}>
         <ambientLight />
         <directionalLight />
         <Capsule
-          args={[radius, length, capSegments]}
+          args={[radius, length, capSegments, radialSegments]}
           position={[positionX, positionY, positionZ]}
           rotation={[rotationX, rotationY, rotationZ]}
           scale={[scaleX, scaleY, scaleZ]}
