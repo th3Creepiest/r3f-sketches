@@ -37,6 +37,7 @@ import PhysicsExample1 from "./pages/physics/Example1.tsx"
 import PhysicsExample2 from "./pages/physics/Example2.tsx"
 import PhysicsExample3 from "./pages/physics/Example3.tsx"
 
+import ASCII from "./pages/postprocessing/ASCII.tsx"
 import Autofocus from "./pages/postprocessing/Autofocus.tsx"
 import Bloom1 from "./pages/postprocessing/Bloom1.tsx"
 import Bloom2 from "./pages/postprocessing/Bloom2.tsx"
@@ -112,6 +113,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="physics-example-2" element={<PhysicsExample2 />} />
         <Route path="physics-example-3" element={<PhysicsExample3 />} />
 
+        <Route path="ascii" element={<ASCII />} />
         <Route path="autofocus" element={<Autofocus />} />
         <Route path="bloom-1" element={<Bloom1 />} />
         <Route path="bloom-2" element={<Bloom2 />} />
@@ -298,6 +300,7 @@ function Physics() {
 }
 function Postprocessing() {
   const links = [
+    { to: "ascii", text: "ASCII" },
     { to: "autofocus", text: "Autofocus" },
     { to: "bloom-1", text: "Bloom 1" },
     { to: "bloom-2", text: "Bloom 2" },
