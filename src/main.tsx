@@ -35,6 +35,10 @@ import MeshStandardMaterial from "./pages/materials/MeshStandardMaterial.tsx"
 import MeshToonMaterial from "./pages/materials/MeshToonMaterial.tsx"
 import PointsMaterial from "./pages/materials/PointsMaterial.tsx"
 
+import Keen from "./pages/models/Keen.tsx"
+import Scene from "./pages/models/Scene.tsx"
+import Suzanne from "./pages/models/Suzanne.tsx"
+
 import Forces from "./pages/physics/Forces.tsx"
 import Gravity from "./pages/physics/Gravity.tsx"
 import RigidBodies from "./pages/physics/RigidBodies.tsx"
@@ -75,9 +79,6 @@ import Transforms from "./pages/Transforms"
 import HelperGizmos from "./pages/HelperGizmos.tsx"
 import LevaGui from "./pages/LevaGui.tsx"
 import Fog from "./pages/Fog"
-import Keen from "./pages/Keen.tsx"
-import Suzanne from "./pages/Suzanne.tsx"
-import Scene from "./pages/Scene"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -116,6 +117,10 @@ createRoot(document.getElementById("root")!).render(
         <Route path="mesh-standard-material" element={<MeshStandardMaterial />} />
         <Route path="mesh-toon-material" element={<MeshToonMaterial />} />
         <Route path="points-material" element={<PointsMaterial />} />
+
+        <Route path="keen" element={<Keen />} />
+        <Route path="scene" element={<Scene />} />
+        <Route path="suzanne" element={<Suzanne />} />
 
         <Route path="forces" element={<Forces />} />
         <Route path="gravity" element={<Gravity />} />
@@ -157,9 +162,6 @@ createRoot(document.getElementById("root")!).render(
         <Route path="helper-gizmos" element={<HelperGizmos />} />
         <Route path="leva-gui" element={<LevaGui />} />
         <Route path="fog" element={<Fog />} />
-        <Route path="keen" element={<Keen />} />
-        <Route path="suzanne" element={<Suzanne />} />
-        <Route path="scene" element={<Scene />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
@@ -174,6 +176,7 @@ export default function App() {
         <Interactions />
         <Lights />
         <Materials />
+        <Models />
         <Physics />
         <Postprocessing />
         <Shapes />
@@ -296,6 +299,26 @@ function Materials() {
   )
 }
 
+function Models() {
+  const links = [
+    { to: "keen", text: "Keen" },
+    { to: "scene", text: "Scene" },
+    { to: "suzanne", text: "Suzanne" },
+  ]
+  return (
+    <section className="border-t border-gray-800 pt-6">
+      <h2 className="text-xl font-semibold mb-4">Models</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {links.map(({ to, text }) => (
+          <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
+            {text}
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 function Physics() {
   const links = [
     { to: "forces", text: "Forces" },
@@ -315,6 +338,7 @@ function Physics() {
     </section>
   )
 }
+
 function Postprocessing() {
   const links = [
     { to: "ascii", text: "ASCII" },
@@ -401,9 +425,6 @@ function Other() {
     { to: "helper-gizmos", text: "Helper Gizmos" },
     { to: "leva-gui", text: "Leva GUI" },
     { to: "fog", text: "Fog" },
-    { to: "keen", text: "Keen" },
-    { to: "Suzanne", text: "Suzanne" },
-    { to: "scene", text: "Scene" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
