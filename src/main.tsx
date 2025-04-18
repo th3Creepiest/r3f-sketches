@@ -36,7 +36,6 @@ import MeshToonMaterial from "./pages/materials/MeshToonMaterial.tsx"
 import PointsMaterial from "./pages/materials/PointsMaterial.tsx"
 
 import Keen from "./pages/models/Keen.tsx"
-import Scene from "./pages/models/Scene.tsx"
 import Suzanne from "./pages/models/Suzanne.tsx"
 
 import Forces from "./pages/physics/Forces.tsx"
@@ -119,7 +118,6 @@ createRoot(document.getElementById("root")!).render(
         <Route path="points-material" element={<PointsMaterial />} />
 
         <Route path="keen" element={<Keen />} />
-        <Route path="scene" element={<Scene />} />
         <Route path="suzanne" element={<Suzanne />} />
 
         <Route path="forces" element={<Forces />} />
@@ -302,7 +300,6 @@ function Materials() {
 function Models() {
   const links = [
     { to: "keen", text: "Keen" },
-    { to: "scene", text: "Scene" },
     { to: "suzanne", text: "Suzanne" },
   ]
   return (
