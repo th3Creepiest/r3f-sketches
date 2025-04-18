@@ -37,6 +37,7 @@ import PointsMaterial from "./pages/materials/PointsMaterial.tsx"
 
 import Keen from "./pages/models/Keen.tsx"
 import Suzanne from "./pages/models/Suzanne.tsx"
+import SuzanneDrei from "./pages/models/SuzanneDrei.tsx"
 
 import Forces from "./pages/physics/Forces.tsx"
 import Gravity from "./pages/physics/Gravity.tsx"
@@ -119,6 +120,7 @@ createRoot(document.getElementById("root")!).render(
 
         <Route path="keen" element={<Keen />} />
         <Route path="suzanne" element={<Suzanne />} />
+        <Route path="suzanne-drei" element={<SuzanneDrei />} />
 
         <Route path="forces" element={<Forces />} />
         <Route path="gravity" element={<Gravity />} />
@@ -301,6 +303,7 @@ function Models() {
   const links = [
     { to: "keen", text: "Keen" },
     { to: "suzanne", text: "Suzanne" },
+    { to: "suzanne-drei", text: "Suzanne Drei" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
