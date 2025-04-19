@@ -3,6 +3,9 @@ import { createRoot } from "react-dom/client"
 import { BrowserRouter, Routes, Route, Link } from "react-router"
 import "./index.css"
 
+import Example from "./pages/animations/Example.tsx"
+import Points from "./pages/animations/Points.tsx"
+
 import CamerasPage from "./pages/cameras/Cameras.tsx"
 import PerspectiveCamera from "./pages/cameras/PerspectiveCamera.tsx"
 import PerspectiveCameraHelper from "./pages/cameras/PerspectiveCameraHelper.tsx"
@@ -73,9 +76,7 @@ import Primitives from "./pages/shapes/Primitives.tsx"
 import Textures1 from "./pages/textures/Textures1.tsx"
 import Textures2 from "./pages/textures/Textures2.tsx"
 
-import Example3 from "./pages/Example3"
 import Example4 from "./pages/Example4"
-import Example5 from "./pages/Example5"
 import Transforms from "./pages/Transforms"
 import HelperGizmos from "./pages/HelperGizmos.tsx"
 import LevaGui from "./pages/LevaGui.tsx"
@@ -86,6 +87,9 @@ createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
+
+        <Route path="example" element={<Example />} />
+        <Route path="points" element={<Points />} />
 
         <Route path="cameras" element={<CamerasPage />} />
         <Route path="perspective-camera" element={<PerspectiveCamera />} />
@@ -157,9 +161,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="textures-1" element={<Textures1 />} />
         <Route path="textures-2" element={<Textures2 />} />
 
-        <Route path="example-3" element={<Example3 />} />
         <Route path="example-4" element={<Example4 />} />
-        <Route path="example-5" element={<Example5 />} />
         <Route path="transforms" element={<Transforms />} />
         <Route path="helper-gizmos" element={<HelperGizmos />} />
         <Route path="leva-gui" element={<LevaGui />} />
@@ -174,6 +176,7 @@ export default function App() {
     <div className="min-h-screen bg-black text-white p-4">
       <h1 className="text-3xl font-bold text-center text-white mb-4">Three.js</h1>
       <nav className="max-w-2xl mx-auto space-y-6">
+        <Animations />
         <Cameras />
         <Interactions />
         <Lights />
@@ -186,6 +189,25 @@ export default function App() {
         <Other />
       </nav>
     </div>
+  )
+}
+
+function Animations() {
+  const links = [
+    { to: "example", text: "Example" },
+    { to: "points", text: "Points" },
+  ]
+  return (
+    <section className="border-t border-gray-800 pt-6">
+      <h2 className="text-xl font-semibold mb-4">Animations</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {links.map(({ to, text }) => (
+          <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
+            {text}
+          </Link>
+        ))}
+      </div>
+    </section>
   )
 }
 
@@ -421,9 +443,7 @@ function Textures() {
 
 function Other() {
   const links = [
-    { to: "example-3", text: "Example 3" },
     { to: "example-4", text: "Example 4" },
-    { to: "example-5", text: "Example 5" },
     { to: "transforms", text: "Transforms" },
     { to: "helper-gizmos", text: "Helper Gizmos" },
     { to: "leva-gui", text: "Leva GUI" },
