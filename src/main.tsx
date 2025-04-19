@@ -81,6 +81,7 @@ import Transforms from "./pages/Transforms"
 import HelperGizmos from "./pages/HelperGizmos.tsx"
 import LevaGui from "./pages/LevaGui.tsx"
 import Fog from "./pages/Fog"
+import Stars from "./pages/Stars"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -166,6 +167,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="helper-gizmos" element={<HelperGizmos />} />
         <Route path="leva-gui" element={<LevaGui />} />
         <Route path="fog" element={<Fog />} />
+        <Route path="stars" element={<Stars />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
@@ -448,6 +450,7 @@ function Other() {
     { to: "helper-gizmos", text: "Helper Gizmos" },
     { to: "leva-gui", text: "Leva GUI" },
     { to: "fog", text: "Fog" },
+    { to: "stars", text: "Stars" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
