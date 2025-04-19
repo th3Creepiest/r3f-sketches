@@ -81,7 +81,7 @@ import Transforms from "./pages/Transforms"
 import HelperGizmos from "./pages/HelperGizmos.tsx"
 import LevaGui from "./pages/LevaGui.tsx"
 import Fog from "./pages/Fog"
-import Stars from "./pages/Stars"
+import Stars from "./pages/drei_staging/Stars"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -180,6 +180,7 @@ export default function App() {
       <nav className="max-w-2xl mx-auto space-y-6">
         <Animations />
         <Cameras />
+        <DreiStaging />
         <Interactions />
         <Lights />
         <Materials />
@@ -230,6 +231,28 @@ function Cameras() {
         className="hover:text-red-400 transition-colors"
       >
         <h2 className="text-xl font-semibold mb-4">Cameras</h2>
+      </Link>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {links.map(({ to, text }) => (
+          <Link key={to} to={to} className="hover:text-blue-400 transition-colors">
+            {text}
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function DreiStaging() {
+  const links = [{ to: "stars", text: "Stars" }]
+  return (
+    <section className="border-t border-gray-800 pt-6">
+      <Link
+        key={"cameras"}
+        to={"cameras"}
+        className="hover:text-red-400 transition-colors"
+      >
+        <h2 className="text-xl font-semibold mb-4">Drei Staging</h2>
       </Link>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {links.map(({ to, text }) => (
@@ -450,7 +473,6 @@ function Other() {
     { to: "helper-gizmos", text: "Helper Gizmos" },
     { to: "leva-gui", text: "Leva GUI" },
     { to: "fog", text: "Fog" },
-    { to: "stars", text: "Stars" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
