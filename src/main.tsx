@@ -3,30 +3,42 @@ import { createRoot } from "react-dom/client"
 import { BrowserRouter, Routes, Route, Link } from "react-router"
 import "./index.css"
 
-import Example from "./pages/animations/Example.tsx"
-import Points from "./pages/animations/Points.tsx"
-
-import CamerasPage from "./pages/cameras/Cameras.tsx"
-import PerspectiveCamera from "./pages/cameras/PerspectiveCamera.tsx"
-import PerspectiveCameraHelper from "./pages/cameras/PerspectiveCameraHelper.tsx"
-import OrthographicCamera from "./pages/cameras/OrthographicCamera.tsx"
-import OrthographicCameraHelper from "./pages/cameras/OrthographicCameraHelper.tsx"
-import OrbitControls from "./pages/cameras/OrbitControls.tsx"
-import FirstPersonControls from "./pages/cameras/FirstPersonControls.tsx"
-
-import InteractionsPage from "./pages/interactions/Interactions.tsx"
-import CharacterController from "./pages/interactions/CharacterController.tsx"
-import KeyEvents from "./pages/interactions/KeyEvents.tsx"
-import MouseEvents from "./pages/interactions/MouseEvents.tsx"
-
-import LightsPage from "./pages/lights/Lights.tsx"
 import AmbientLight from "./pages/lights/AmbientLight.tsx"
+import ASCII from "./pages/postprocessing/ASCII.tsx"
+import Autofocus from "./pages/postprocessing/Autofocus.tsx"
+import Backdrop from "./pages/drei_staging/Backdrop"
+import BigVegas from "./pages/models/BigVegas.tsx"
+import Bloom1 from "./pages/postprocessing/Bloom1.tsx"
+import Bloom2 from "./pages/postprocessing/Bloom2.tsx"
+import BrightnessContrast from "./pages/postprocessing/BrightnessContrast.tsx"
+import CamerasPage from "./pages/cameras/Cameras.tsx"
+import CharacterController from "./pages/interactions/CharacterController.tsx"
+import ChromaticAberration from "./pages/postprocessing/ChromaticAberration.tsx"
+import ColorAverage from "./pages/postprocessing/ColorAverage.tsx"
+import Cubes from "./pages/shapes/Cubes.tsx"
+import DepthOfField from "./pages/postprocessing/DepthOfField.tsx"
 import DirectionalLight from "./pages/lights/DirectionalLight.tsx"
+import DotScreen from "./pages/postprocessing/DotScreen.tsx"
+import DreiBox from "./pages/shapes/DreiBox.tsx"
+import DreiCapsule from "./pages/shapes/DreiCapsule.tsx"
+import DreiRoundedBox from "./pages/shapes/DreiRoundedBox.tsx"
+import Example from "./pages/animations/Example.tsx"
+import Example4 from "./pages/Example4"
+import FirstPersonControls from "./pages/cameras/FirstPersonControls.tsx"
+import Fisheye from "./pages/postprocessing/Fisheye.tsx"
+import Fog from "./pages/Fog"
+import Forces from "./pages/physics/Forces.tsx"
+import Glitch from "./pages/postprocessing/Glitch.tsx"
+import Gravity from "./pages/physics/Gravity.tsx"
+import Grid from "./pages/postprocessing/Grid.tsx"
+import HelperGizmos from "./pages/HelperGizmos.tsx"
 import HemisphereLight from "./pages/lights/HemisphereLight.tsx"
-import PointLight from "./pages/lights/PointLight.tsx"
-import RectAreaLight from "./pages/lights/RectAreaLight.tsx"
-import SpotLight from "./pages/lights/SpotLight.tsx"
-
+import HueSaturation from "./pages/postprocessing/HueSaturation.tsx"
+import InteractionsPage from "./pages/interactions/Interactions.tsx"
+import Keen from "./pages/models/Keen.tsx"
+import KeyEvents from "./pages/interactions/KeyEvents.tsx"
+import LevaGui from "./pages/LevaGui.tsx"
+import LightsPage from "./pages/lights/Lights.tsx"
 import MaterialsPage from "./pages/materials/Materials.tsx"
 import MeshBasicMaterial from "./pages/materials/MeshBasicMaterial.tsx"
 import MeshDepthMaterial from "./pages/materials/MeshDepthMaterial.tsx"
@@ -36,83 +48,73 @@ import MeshPhongMaterial from "./pages/materials/MeshPhongMaterial.tsx"
 import MeshPhysicalMaterial from "./pages/materials/MeshPhysicalMaterial.tsx"
 import MeshStandardMaterial from "./pages/materials/MeshStandardMaterial.tsx"
 import MeshToonMaterial from "./pages/materials/MeshToonMaterial.tsx"
-import PointsMaterial from "./pages/materials/PointsMaterial.tsx"
-
-import BigVegas from "./pages/models/BigVegas.tsx"
-import Keen from "./pages/models/Keen.tsx"
-import Suzanne from "./pages/models/Suzanne.tsx"
-import SuzanneDrei from "./pages/models/SuzanneDrei.tsx"
-
-import Forces from "./pages/physics/Forces.tsx"
-import Gravity from "./pages/physics/Gravity.tsx"
-import RigidBodies from "./pages/physics/RigidBodies.tsx"
-
-import ASCII from "./pages/postprocessing/ASCII.tsx"
-import Autofocus from "./pages/postprocessing/Autofocus.tsx"
-import Bloom1 from "./pages/postprocessing/Bloom1.tsx"
-import Bloom2 from "./pages/postprocessing/Bloom2.tsx"
-import BrightnessContrast from "./pages/postprocessing/BrightnessContrast.tsx"
-import ChromaticAberration from "./pages/postprocessing/ChromaticAberration.tsx"
-import ColorAverage from "./pages/postprocessing/ColorAverage.tsx"
-import DepthOfField from "./pages/postprocessing/DepthOfField.tsx"
-import DotScreen from "./pages/postprocessing/DotScreen.tsx"
-import Fisheye from "./pages/postprocessing/Fisheye.tsx"
-import Glitch from "./pages/postprocessing/Glitch.tsx"
-import Grid from "./pages/postprocessing/Grid.tsx"
-import HueSaturation from "./pages/postprocessing/HueSaturation.tsx"
+import MouseEvents from "./pages/interactions/MouseEvents.tsx"
 import Noise from "./pages/postprocessing/Noise.tsx"
+import OrbitControls from "./pages/cameras/OrbitControls.tsx"
+import OrthographicCamera from "./pages/cameras/OrthographicCamera.tsx"
+import OrthographicCameraHelper from "./pages/cameras/OrthographicCameraHelper.tsx"
+import PerspectiveCamera from "./pages/cameras/PerspectiveCamera.tsx"
+import PerspectiveCameraHelper from "./pages/cameras/PerspectiveCameraHelper.tsx"
 import Pixelation from "./pages/postprocessing/Pixelation.tsx"
+import PointLight from "./pages/lights/PointLight.tsx"
+import Points from "./pages/animations/Points.tsx"
+import PointsMaterial from "./pages/materials/PointsMaterial.tsx"
+import Primitives from "./pages/shapes/Primitives.tsx"
 import Ramp from "./pages/postprocessing/Ramp.tsx"
+import RectAreaLight from "./pages/lights/RectAreaLight.tsx"
+import RigidBodies from "./pages/physics/RigidBodies.tsx"
 import Scanline from "./pages/postprocessing/Scanline.tsx"
 import Sepia from "./pages/postprocessing/Sepia.tsx"
-import Vignette from "./pages/postprocessing/Vignette.tsx"
-
-import Cubes from "./pages/shapes/Cubes.tsx"
-import DreiBox from "./pages/shapes/DreiBox.tsx"
-import DreiCapsule from "./pages/shapes/DreiCapsule.tsx"
-import DreiRoundedBox from "./pages/shapes/DreiRoundedBox.tsx"
-import Primitives from "./pages/shapes/Primitives.tsx"
-
+import SpotLight from "./pages/lights/SpotLight.tsx"
+import Stars from "./pages/drei_staging/Stars"
+import Suzanne from "./pages/models/Suzanne.tsx"
+import SuzanneDrei from "./pages/models/SuzanneDrei.tsx"
 import Textures1 from "./pages/textures/Textures1.tsx"
 import Textures2 from "./pages/textures/Textures2.tsx"
-
-import Example4 from "./pages/Example4"
 import Transforms from "./pages/Transforms"
-import HelperGizmos from "./pages/HelperGizmos.tsx"
-import LevaGui from "./pages/LevaGui.tsx"
-import Fog from "./pages/Fog"
-import Stars from "./pages/drei_staging/Stars"
+import Vignette from "./pages/postprocessing/Vignette.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-
-        <Route path="example" element={<Example />} />
-        <Route path="points" element={<Points />} />
-
-        <Route path="cameras" element={<CamerasPage />} />
-        <Route path="perspective-camera" element={<PerspectiveCamera />} />
-        <Route path="perspective-camera-helper" element={<PerspectiveCameraHelper />} />
-        <Route path="orthographic-camera" element={<OrthographicCamera />} />
-        <Route path="orthographic-camera-helper" element={<OrthographicCameraHelper />} />
-        <Route path="orbit-controls" element={<OrbitControls />} />
-        <Route path="first-person-controls" element={<FirstPersonControls />} />
-
-        <Route path="interactions" element={<InteractionsPage />} />
-        <Route path="character-controller" element={<CharacterController />} />
-        <Route path="key-events" element={<KeyEvents />} />
-        <Route path="mouse-events" element={<MouseEvents />} />
-
-        <Route path="lights" element={<LightsPage />} />
         <Route path="ambient-light" element={<AmbientLight />} />
+        <Route path="ascii" element={<ASCII />} />
+        <Route path="autofocus" element={<Autofocus />} />
+        <Route path="backdrop" element={<Backdrop />} />
+        <Route path="big-vegas" element={<BigVegas />} />
+        <Route path="bloom-1" element={<Bloom1 />} />
+        <Route path="bloom-2" element={<Bloom2 />} />
+        <Route path="brightness-contrast" element={<BrightnessContrast />} />
+        <Route path="cameras" element={<CamerasPage />} />
+        <Route path="character-controller" element={<CharacterController />} />
+        <Route path="chromatic-aberration" element={<ChromaticAberration />} />
+        <Route path="color-average" element={<ColorAverage />} />
+        <Route path="cubes" element={<Cubes />} />
+        <Route path="depth-of-field" element={<DepthOfField />} />
         <Route path="directional-light" element={<DirectionalLight />} />
+        <Route path="dot-screen" element={<DotScreen />} />
+        <Route path="drei-box" element={<DreiBox />} />
+        <Route path="drei-capsule" element={<DreiCapsule />} />
+        <Route path="drei-rounded-box" element={<DreiRoundedBox />} />
+        <Route path="example-4" element={<Example4 />} />
+        <Route path="example" element={<Example />} />
+        <Route path="first-person-controls" element={<FirstPersonControls />} />
+        <Route path="fisheye" element={<Fisheye />} />
+        <Route path="fog" element={<Fog />} />
+        <Route path="forces" element={<Forces />} />
+        <Route path="glitch" element={<Glitch />} />
+        <Route path="gravity" element={<Gravity />} />
+        <Route path="grid" element={<Grid />} />
+        <Route path="helper-gizmos" element={<HelperGizmos />} />
         <Route path="hemisphere-light" element={<HemisphereLight />} />
-        <Route path="point-light" element={<PointLight />} />
-        <Route path="rect-area-light" element={<RectAreaLight />} />
-        <Route path="spot-light" element={<SpotLight />} />
-
+        <Route path="hue-saturation" element={<HueSaturation />} />
+        <Route path="interactions" element={<InteractionsPage />} />
+        <Route path="keen" element={<Keen />} />
+        <Route path="key-events" element={<KeyEvents />} />
+        <Route path="leva-gui" element={<LevaGui />} />
+        <Route path="lights" element={<LightsPage />} />
         <Route path="materials" element={<MaterialsPage />} />
         <Route path="mesh-basic-material" element={<MeshBasicMaterial />} />
         <Route path="mesh-depth-material" element={<MeshDepthMaterial />} />
@@ -122,52 +124,31 @@ createRoot(document.getElementById("root")!).render(
         <Route path="mesh-physical-material" element={<MeshPhysicalMaterial />} />
         <Route path="mesh-standard-material" element={<MeshStandardMaterial />} />
         <Route path="mesh-toon-material" element={<MeshToonMaterial />} />
-        <Route path="points-material" element={<PointsMaterial />} />
-
-        <Route path="big-vegas" element={<BigVegas />} />
-        <Route path="keen" element={<Keen />} />
-        <Route path="suzanne" element={<Suzanne />} />
-        <Route path="suzanne-drei" element={<SuzanneDrei />} />
-
-        <Route path="forces" element={<Forces />} />
-        <Route path="gravity" element={<Gravity />} />
-        <Route path="rigid-bodies" element={<RigidBodies />} />
-
-        <Route path="ascii" element={<ASCII />} />
-        <Route path="autofocus" element={<Autofocus />} />
-        <Route path="bloom-1" element={<Bloom1 />} />
-        <Route path="bloom-2" element={<Bloom2 />} />
-        <Route path="brightness-contrast" element={<BrightnessContrast />} />
-        <Route path="chromatic-aberration" element={<ChromaticAberration />} />
-        <Route path="color-average" element={<ColorAverage />} />
-        <Route path="depth-of-field" element={<DepthOfField />} />
-        <Route path="dot-screen" element={<DotScreen />} />
-        <Route path="fisheye" element={<Fisheye />} />
-        <Route path="glitch" element={<Glitch />} />
-        <Route path="grid" element={<Grid />} />
-        <Route path="hue-saturation" element={<HueSaturation />} />
+        <Route path="mouse-events" element={<MouseEvents />} />
         <Route path="noise" element={<Noise />} />
+        <Route path="orbit-controls" element={<OrbitControls />} />
+        <Route path="orthographic-camera-helper" element={<OrthographicCameraHelper />} />
+        <Route path="orthographic-camera" element={<OrthographicCamera />} />
+        <Route path="perspective-camera-helper" element={<PerspectiveCameraHelper />} />
+        <Route path="perspective-camera" element={<PerspectiveCamera />} />
         <Route path="pixelation" element={<Pixelation />} />
+        <Route path="point-light" element={<PointLight />} />
+        <Route path="points-material" element={<PointsMaterial />} />
+        <Route path="points" element={<Points />} />
+        <Route path="primitives" element={<Primitives />} />
         <Route path="ramp" element={<Ramp />} />
+        <Route path="rect-area-light" element={<RectAreaLight />} />
+        <Route path="rigid-bodies" element={<RigidBodies />} />
         <Route path="scanline" element={<Scanline />} />
         <Route path="sepia" element={<Sepia />} />
-        <Route path="vignette" element={<Vignette />} />
-
-        <Route path="cubes" element={<Cubes />} />
-        <Route path="drei-box" element={<DreiBox />} />
-        <Route path="drei-capsule" element={<DreiCapsule />} />
-        <Route path="drei-rounded-box" element={<DreiRoundedBox />} />
-        <Route path="primitives" element={<Primitives />} />
-
+        <Route path="spot-light" element={<SpotLight />} />
+        <Route path="stars" element={<Stars />} />
+        <Route path="suzanne-drei" element={<SuzanneDrei />} />
+        <Route path="suzanne" element={<Suzanne />} />
         <Route path="textures-1" element={<Textures1 />} />
         <Route path="textures-2" element={<Textures2 />} />
-
-        <Route path="example-4" element={<Example4 />} />
         <Route path="transforms" element={<Transforms />} />
-        <Route path="helper-gizmos" element={<HelperGizmos />} />
-        <Route path="leva-gui" element={<LevaGui />} />
-        <Route path="fog" element={<Fog />} />
-        <Route path="stars" element={<Stars />} />
+        <Route path="vignette" element={<Vignette />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
@@ -244,7 +225,10 @@ function Cameras() {
 }
 
 function DreiStaging() {
-  const links = [{ to: "stars", text: "Stars" }]
+  const links = [
+    { to: "backdrop", text: "Backdrop" },
+    { to: "stars", text: "Stars" },
+  ]
   return (
     <section className="border-t border-gray-800 pt-6">
       <Link
