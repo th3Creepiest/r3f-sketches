@@ -76,6 +76,7 @@ import Vignette from "./pages/postprocessing/Vignette.tsx"
 import BBAnchor from "./pages/drei_staging/BBAnchor.tsx"
 import CameraShake from "./pages/drei_staging/CameraShake.tsx"
 import Cloud from "./pages/drei_staging/Cloud.tsx"
+import Float from "./pages/drei_staging/Float.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -155,6 +156,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="bb-anchor" element={<BBAnchor />} />
         <Route path="camera-shake" element={<CameraShake />} />
         <Route path="cloud" element={<Cloud />} />
+        <Route path="float" element={<Float />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
@@ -212,11 +214,7 @@ function Cameras() {
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
-      <Link
-        key={"cameras"}
-        to={"cameras"}
-        className="hover:text-red-400 transition-colors"
-      >
+      <Link key={"cameras"} to={"cameras"} className="hover:text-red-400 transition-colors">
         <h2 className="text-xl font-semibold mb-4">Cameras</h2>
       </Link>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -236,15 +234,12 @@ function DreiStaging() {
     { to: "bb-anchor", text: "BBAnchor" },
     { to: "camera-shake", text: "Camera Shake" },
     { to: "cloud", text: "Cloud" },
+    { to: "float", text: "Float" },
     { to: "stars", text: "Stars" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
-      <Link
-        key={"cameras"}
-        to={"cameras"}
-        className="hover:text-red-400 transition-colors"
-      >
+      <Link key={"cameras"} to={"cameras"} className="hover:text-red-400 transition-colors">
         <h2 className="text-xl font-semibold mb-4">Drei Staging</h2>
       </Link>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -266,11 +261,7 @@ function Interactions() {
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
-      <Link
-        key={"interactions"}
-        to={"interactions"}
-        className="hover:text-red-400 transition-colors"
-      >
+      <Link key={"interactions"} to={"interactions"} className="hover:text-red-400 transition-colors">
         <h2 className="text-xl font-semibold mb-4">Interactions</h2>
       </Link>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -323,11 +314,7 @@ function Materials() {
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
-      <Link
-        key={"materials"}
-        to={"materials"}
-        className="hover:text-red-400 transition-colors"
-      >
+      <Link key={"materials"} to={"materials"} className="hover:text-red-400 transition-colors">
         <h2 className="text-xl font-semibold mb-4">Materials</h2>
       </Link>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
