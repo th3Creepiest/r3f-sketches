@@ -73,6 +73,7 @@ import Textures1 from "./pages/textures/Textures1.tsx"
 import Textures2 from "./pages/textures/Textures2.tsx"
 import Transforms from "./pages/Transforms"
 import Vignette from "./pages/postprocessing/Vignette.tsx"
+import BBAnchor from "./pages/drei_staging/BBAnchor.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -149,6 +150,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="textures-2" element={<Textures2 />} />
         <Route path="transforms" element={<Transforms />} />
         <Route path="vignette" element={<Vignette />} />
+        <Route path="bb-anchor" element={<BBAnchor />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
@@ -227,6 +229,7 @@ function Cameras() {
 function DreiStaging() {
   const links = [
     { to: "backdrop", text: "Backdrop" },
+    { to: "bb-anchor", text: "BBAnchor" },
     { to: "stars", text: "Stars" },
   ]
   return (
