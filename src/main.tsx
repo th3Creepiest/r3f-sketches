@@ -35,6 +35,7 @@ import MeshStandardMaterial from "./pages/materials/MeshStandardMaterial.tsx"
 import MeshToonMaterial from "./pages/materials/MeshToonMaterial.tsx"
 import PointsMaterial from "./pages/materials/PointsMaterial.tsx"
 
+import BigVegas from "./pages/models/BigVegas.tsx"
 import Keen from "./pages/models/Keen.tsx"
 import Suzanne from "./pages/models/Suzanne.tsx"
 import SuzanneDrei from "./pages/models/SuzanneDrei.tsx"
@@ -118,6 +119,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="mesh-toon-material" element={<MeshToonMaterial />} />
         <Route path="points-material" element={<PointsMaterial />} />
 
+        <Route path="big-vegas" element={<BigVegas />} />
         <Route path="keen" element={<Keen />} />
         <Route path="suzanne" element={<Suzanne />} />
         <Route path="suzanne-drei" element={<SuzanneDrei />} />
@@ -301,6 +303,7 @@ function Materials() {
 
 function Models() {
   const links = [
+    { to: "big-vegas", text: "Big Vegas" },
     { to: "keen", text: "Keen" },
     { to: "suzanne", text: "Suzanne" },
     { to: "suzanne-drei", text: "Suzanne Drei" },
