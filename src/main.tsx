@@ -7,13 +7,16 @@ import AmbientLight from "./pages/lights/AmbientLight.tsx"
 import ASCII from "./pages/postprocessing/ASCII.tsx"
 import Autofocus from "./pages/postprocessing/Autofocus.tsx"
 import Backdrop from "./pages/drei_staging/Backdrop"
+import BBAnchor from "./pages/drei_staging/BBAnchor.tsx"
 import BigVegas from "./pages/models/BigVegas.tsx"
 import Bloom1 from "./pages/postprocessing/Bloom1.tsx"
 import Bloom2 from "./pages/postprocessing/Bloom2.tsx"
 import BrightnessContrast from "./pages/postprocessing/BrightnessContrast.tsx"
+import CameraShake from "./pages/drei_staging/CameraShake.tsx"
 import CamerasPage from "./pages/cameras/Cameras.tsx"
 import CharacterController from "./pages/interactions/CharacterController.tsx"
 import ChromaticAberration from "./pages/postprocessing/ChromaticAberration.tsx"
+import Cloud from "./pages/drei_staging/Cloud.tsx"
 import ColorAverage from "./pages/postprocessing/ColorAverage.tsx"
 import Cubes from "./pages/shapes/Cubes.tsx"
 import DepthOfField from "./pages/postprocessing/DepthOfField.tsx"
@@ -26,6 +29,7 @@ import Example from "./pages/animations/Example.tsx"
 import Example4 from "./pages/Example4"
 import FirstPersonControls from "./pages/cameras/FirstPersonControls.tsx"
 import Fisheye from "./pages/postprocessing/Fisheye.tsx"
+import Float from "./pages/drei_staging/Float.tsx"
 import Fog from "./pages/Fog"
 import Forces from "./pages/physics/Forces.tsx"
 import Glitch from "./pages/postprocessing/Glitch.tsx"
@@ -65,6 +69,7 @@ import RectAreaLight from "./pages/lights/RectAreaLight.tsx"
 import RigidBodies from "./pages/physics/RigidBodies.tsx"
 import Scanline from "./pages/postprocessing/Scanline.tsx"
 import Sepia from "./pages/postprocessing/Sepia.tsx"
+import Sparkles from "./pages/drei_staging/Sparkles.tsx"
 import SpotLight from "./pages/lights/SpotLight.tsx"
 import Stars from "./pages/drei_staging/Stars"
 import Suzanne from "./pages/models/Suzanne.tsx"
@@ -73,10 +78,6 @@ import Textures1 from "./pages/textures/Textures1.tsx"
 import Textures2 from "./pages/textures/Textures2.tsx"
 import Transforms from "./pages/Transforms"
 import Vignette from "./pages/postprocessing/Vignette.tsx"
-import BBAnchor from "./pages/drei_staging/BBAnchor.tsx"
-import CameraShake from "./pages/drei_staging/CameraShake.tsx"
-import Cloud from "./pages/drei_staging/Cloud.tsx"
-import Float from "./pages/drei_staging/Float.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -87,13 +88,16 @@ createRoot(document.getElementById("root")!).render(
         <Route path="ascii" element={<ASCII />} />
         <Route path="autofocus" element={<Autofocus />} />
         <Route path="backdrop" element={<Backdrop />} />
+        <Route path="bb-anchor" element={<BBAnchor />} />
         <Route path="big-vegas" element={<BigVegas />} />
         <Route path="bloom-1" element={<Bloom1 />} />
         <Route path="bloom-2" element={<Bloom2 />} />
         <Route path="brightness-contrast" element={<BrightnessContrast />} />
+        <Route path="camera-shake" element={<CameraShake />} />
         <Route path="cameras" element={<CamerasPage />} />
         <Route path="character-controller" element={<CharacterController />} />
         <Route path="chromatic-aberration" element={<ChromaticAberration />} />
+        <Route path="cloud" element={<Cloud />} />
         <Route path="color-average" element={<ColorAverage />} />
         <Route path="cubes" element={<Cubes />} />
         <Route path="depth-of-field" element={<DepthOfField />} />
@@ -106,6 +110,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="example" element={<Example />} />
         <Route path="first-person-controls" element={<FirstPersonControls />} />
         <Route path="fisheye" element={<Fisheye />} />
+        <Route path="float" element={<Float />} />
         <Route path="fog" element={<Fog />} />
         <Route path="forces" element={<Forces />} />
         <Route path="glitch" element={<Glitch />} />
@@ -145,6 +150,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="rigid-bodies" element={<RigidBodies />} />
         <Route path="scanline" element={<Scanline />} />
         <Route path="sepia" element={<Sepia />} />
+        <Route path="sparkles" element={<Sparkles />} />
         <Route path="spot-light" element={<SpotLight />} />
         <Route path="stars" element={<Stars />} />
         <Route path="suzanne-drei" element={<SuzanneDrei />} />
@@ -153,10 +159,6 @@ createRoot(document.getElementById("root")!).render(
         <Route path="textures-2" element={<Textures2 />} />
         <Route path="transforms" element={<Transforms />} />
         <Route path="vignette" element={<Vignette />} />
-        <Route path="bb-anchor" element={<BBAnchor />} />
-        <Route path="camera-shake" element={<CameraShake />} />
-        <Route path="cloud" element={<Cloud />} />
-        <Route path="float" element={<Float />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
@@ -214,7 +216,11 @@ function Cameras() {
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
-      <Link key={"cameras"} to={"cameras"} className="hover:text-red-400 transition-colors">
+      <Link
+        key={"cameras"}
+        to={"cameras"}
+        className="hover:text-red-400 transition-colors"
+      >
         <h2 className="text-xl font-semibold mb-4">Cameras</h2>
       </Link>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -235,11 +241,16 @@ function DreiStaging() {
     { to: "camera-shake", text: "Camera Shake" },
     { to: "cloud", text: "Cloud" },
     { to: "float", text: "Float" },
+    { to: "sparkles", text: "Sparkles" },
     { to: "stars", text: "Stars" },
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
-      <Link key={"cameras"} to={"cameras"} className="hover:text-red-400 transition-colors">
+      <Link
+        key={"cameras"}
+        to={"cameras"}
+        className="hover:text-red-400 transition-colors"
+      >
         <h2 className="text-xl font-semibold mb-4">Drei Staging</h2>
       </Link>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -261,7 +272,11 @@ function Interactions() {
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
-      <Link key={"interactions"} to={"interactions"} className="hover:text-red-400 transition-colors">
+      <Link
+        key={"interactions"}
+        to={"interactions"}
+        className="hover:text-red-400 transition-colors"
+      >
         <h2 className="text-xl font-semibold mb-4">Interactions</h2>
       </Link>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -314,7 +329,11 @@ function Materials() {
   ]
   return (
     <section className="border-t border-gray-800 pt-6">
-      <Link key={"materials"} to={"materials"} className="hover:text-red-400 transition-colors">
+      <Link
+        key={"materials"}
+        to={"materials"}
+        className="hover:text-red-400 transition-colors"
+      >
         <h2 className="text-xl font-semibold mb-4">Materials</h2>
       </Link>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
