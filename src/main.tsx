@@ -7,6 +7,7 @@ import AmbientLight from "./pages/lights/AmbientLight.tsx"
 import ASCII from "./pages/postprocessing/ASCII.tsx"
 import Autofocus from "./pages/postprocessing/Autofocus.tsx"
 import Backdrop from "./pages/drei_staging/Backdrop"
+import Ball from "./pages/models/Ball.tsx"
 import BBAnchor from "./pages/drei_staging/BBAnchor.tsx"
 import BigVegas from "./pages/models/BigVegas.tsx"
 import Bloom1 from "./pages/postprocessing/Bloom1.tsx"
@@ -88,6 +89,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="ascii" element={<ASCII />} />
         <Route path="autofocus" element={<Autofocus />} />
         <Route path="backdrop" element={<Backdrop />} />
+        <Route path="ball" element={<Ball />} />
         <Route path="bb-anchor" element={<BBAnchor />} />
         <Route path="big-vegas" element={<BigVegas />} />
         <Route path="bloom-1" element={<Bloom1 />} />
@@ -349,6 +351,7 @@ function Materials() {
 
 function Models() {
   const links = [
+    { to: "ball", text: "Ball" },
     { to: "big-vegas", text: "Big Vegas" },
     { to: "keen", text: "Keen" },
     { to: "suzanne", text: "Suzanne" },
